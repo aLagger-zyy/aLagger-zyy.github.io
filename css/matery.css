@@ -279,6 +279,7 @@ mark {
 
 .text-color {
     color: #0f9d58 !important;
+     background-image: linear-gradient(to right,#4d838d 0%,#febf8c 100%);
 }
 
 .white-color {

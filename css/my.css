@@ -1,5 +1,10 @@
 /* Here is your custom css styles. */
-
+body {
+  background: url(/medias/banner/0.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
 /* hexo-filter-github-emojis */
 .github-emoji{
     height: 2em;
