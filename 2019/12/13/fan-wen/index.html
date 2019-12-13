@@ -1,0 +1,1615 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="java基础整理, Zyy&#39;s Blog">
+    <meta name="description" content="一：java语言基础1.1java的入口与注释1.1.1java的入口public static void main(String[] args){ }
+java程序的主函数，帮助我们运行写java代码，能够看到程序运行的效果 没有main">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>java基础整理 | Zyy&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<meta name="generator" content="Hexo 4.1.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Zyy's Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>足迹</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>说点</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Zyy's Blog</div>
+        <div class="logo-desc">
+            
+            日复一日,来日方长
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			足迹
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			说点
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://alagger-zyy.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #FEBF8C;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://alagger-zyy.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        java基础整理
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/java%E5%9F%BA%E7%A1%80/">
+                                <span class="chip bg-color">java基础</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
+                                <span class="chip bg-color">未完待续</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/java/" class="post-category">
+                                java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+	<div class="text-color" align=center style="font-size:large">
+    	
+      	  <i class="far fa-square"></i> 软帝学院
+   	 
+	</div>
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-12-13
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.5k
+                </div>
+                
+	<div class="info-break-policy">
+    	
+     	   <i class="fa fa-pencil"></i> 作者: 软帝学院
+     	
+              </div>
+                
+				
+                
+            </div>
+            
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="一：java语言基础"><a href="#一：java语言基础" class="headerlink" title="一：java语言基础"></a>一：java语言基础</h2><h3 id="1-1java的入口与注释"><a href="#1-1java的入口与注释" class="headerlink" title="1.1java的入口与注释"></a>1.1java的入口与注释</h3><h4 id="1-1-1java的入口"><a href="#1-1-1java的入口" class="headerlink" title="1.1.1java的入口"></a>1.1.1java的入口</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token punctuation">}</span></code></pre>
+<p>java程序的主函数，帮助我们运行写java代码，能够看到程序运行的效果 没有main方法，程序无法运行，main方法不能乱写，固定格式</p>
+<h4 id="1-1-2打印输出语句"><a href="#1-1-2打印输出语句" class="headerlink" title="1.1.2打印输出语句"></a>1.1.2打印输出语句</h4><p> System.out.println()；</p>
+<ul>
+<li>println() 是一个方法。</li>
+<li>System 是系统类。 </li>
+<li>out 是标准输出对象</li>
+</ul>
+<p>这句话的用法是调用系统类 System 中的标准输出对象 out 中的方法 println()。</p>
+<p>转义字符：</p>
+<table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘’</td>
+<td>单引号字符</td>
+</tr>
+<tr>
+<td>“\“</td>
+<td>双引号字符</td>
+</tr>
+<tr>
+<td>\\</td>
+<td>反斜杠字符</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>垂直制表符，将光标移到下一个制表符的位置</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退格</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页</td>
+</tr>
+</tbody></table>
+<h4 id="1-1-3注释"><a href="#1-1-3注释" class="headerlink" title="1.1.3注释"></a>1.1.3注释</h4><p>//单行注释：常用来写代码行的注释</p>
+<p>/**/多行注释</p>
+<p>/** 开始，以 */结束。第三种被称作说明注释。说明注释允许你在程序中嵌入关于程序的信息。 经常用于对类与方法的功能进行解释。</p>
+<h3 id="1-2数据类型"><a href="#1-2数据类型" class="headerlink" title="1.2数据类型"></a>1.2数据类型</h3><p>java中的数据类型：基本数据类型和引用数据类型</p>
+<h4 id="1-2-1基本数据类型"><a href="#1-2-1基本数据类型" class="headerlink" title="1.2.1基本数据类型"></a>1.2.1基本数据类型</h4><p><strong>整形：整数的数据类型</strong></p>
+<table>
+<thead>
+<tr>
+<th>整形</th>
+<th>字节（所占内存空间）</th>
+<th>位数（长度）</th>
+<th>最大值</th>
+<th>最小值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>byte</td>
+<td>1字节</td>
+<td>8</td>
+<td>127(2^7-1)</td>
+<td>-128(-2^7)</td>
+</tr>
+<tr>
+<td>short</td>
+<td>2字节</td>
+<td>16</td>
+<td>32767(2^15-1)</td>
+<td>-32768(-2^15-1)</td>
+</tr>
+<tr>
+<td>int（整形默认类型）</td>
+<td>4字节</td>
+<td>32</td>
+<td>2^31-1</td>
+<td>-2^31</td>
+</tr>
+<tr>
+<td>long</td>
+<td>8字节</td>
+<td>64</td>
+<td>2^63-1</td>
+<td>-2^63</td>
+</tr>
+</tbody></table>
+<p>总结下规律:从7开始，依次乘2+1</p>
+<p><strong>浮点型：小数的数据类型</strong></p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>字节</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ﬂoat</td>
+<td>4字节</td>
+<td>单精度小数（不常用）</td>
+</tr>
+<tr>
+<td>double（浮点数默认类型）</td>
+<td>8字节</td>
+<td>双精度小数（常用）</td>
+</tr>
+</tbody></table>
+<p><strong>字符型：文字或者符号的数据类型</strong></p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>char</td>
+<td>字符、文字等</td>
+</tr>
+</tbody></table>
+<p><strong>布尔类型：真或假类型</strong></p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean</td>
+<td>只有两个值   true/false</td>
+</tr>
+</tbody></table>
+<h4 id="1-2-2引用数据类型"><a href="#1-2-2引用数据类型" class="headerlink" title="1.2.2引用数据类型"></a>1.2.2引用数据类型</h4><p>Java中jdk封装的类，以及自定义的Java类，都属于引用数据类型<br>每一种基本数据类型，都对应有引用数据类型（称之为基本数据类型的包装类）<br>这些引用数据类型封装了对基本数据类型进行操作的方法以及数据，比如求基本数据类型的最大值，最 小值以及位数，都可以使用对应的引用数据类型来进行获取。</p>
+<table>
+<thead>
+<tr>
+<th>基本数据类型</th>
+<th>引用数据类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>byte</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>short</td>
+<td>Short</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>char</td>
+<td>Character</td>
+</tr>
+<tr>
+<td>flat</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>Boolean</td>
+</tr>
+</tbody></table>
+<h3 id="1-3-变量"><a href="#1-3-变量" class="headerlink" title="1.3 变量"></a>1.3 变量</h3><h4 id="1-3-1什么是变量"><a href="#1-3-1什么是变量" class="headerlink" title="1.3.1什么是变量"></a>1.3.1什么是变量</h4><p>计算机用来存储变量可变数据的内存空间</p>
+<p>java中的变量，它是一个内存空间，要占用一定的内存大小</p>
+<h4 id="1-3-2创建变量"><a href="#1-3-2创建变量" class="headerlink" title="1.3.2创建变量"></a>1.3.2创建变量</h4><ul>
+<li>确定变量的类型跟名称</li>
+<li>给变量赋值（初始化）</li>
+</ul>
+<h4 id="1-3-3变量命名的规则和规范"><a href="#1-3-3变量命名的规则和规范" class="headerlink" title="1.3.3变量命名的规则和规范"></a>1.3.3变量命名的规则和规范</h4><p><strong>1.变量的命名规则（必须遵守，法律）：</strong><br>        只能以“字母”，<code>“_”</code>，<code>“$”</code>开始，不能以数字开始，不能包含特殊字符<code>（+、-、*、/）</code>，以及Java    关键字<br><strong>2.变量的命名规范（不必须，道德）：</strong><br>        变量命名尽量见名知意，采用驼峰命名法。</p>
+<p>​        驼峰命名法：变量首字母小写，如果多个单词，从第二个单词开始，首字母大写。举例：         startGame</p>
+<p><strong>定义变量需要注意的问题：</strong>               </p>
+<ol>
+<li>编译器默认的整数类型为<code>int</code>类型（整数超过int范围就会报错，如果定义long类型超过int范围 需要在数据后面加 L 或 l ）。            </li>
+<li>默认的小数类型是<code>double</code>类型（如果需要定义ﬂoat时需要在数据后面加 F 或 f ）。</li>
+<li><code>char</code>类型的数据，如果要定义字符，需要用单引号包裹，并且单引号中只能是一个字符内容（不能用双引号）。</li>
+</ol>
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><ol>
+<li>变量使用之前，必须经过声明并且初始化</li>
+<li>变量不能重复定义 3.变量名只能以字母，下划线，$开始，可以包含数字，不能包含特殊字符（+、-、*、/）等，不能使用 Java关键字</li>
+<li>变量命名最好见名知意，并且采用驼峰命名法 </li>
+<li>如果定义<code>long</code>类型的数据，最好值后面加l或者L，如果定义ﬂoat类型的数据，最好值后面加f或者F </li>
+</ol>
+<h3 id="1-4-java中的数据类型转换"><a href="#1-4-java中的数据类型转换" class="headerlink" title="1.4 java中的数据类型转换"></a>1.4 java中的数据类型转换</h3><ol>
+<li>自动类型转换（隐示类型转换）<br>   当<code>小</code>范围的数据向<code>大</code>范围的数据类型时，会发生自动类型转换   <code>byte  -&gt; int  (会自动转)</code></li>
+<li>强制类型转换（显示类型转换）：慎用  当<code>大</code>范围的数据类型向<code>小</code>范围数据类型时，需要强制类型转换<code>int  -&gt; byte  (强制性)</code></li>
+</ol>
+<h3 id="1-5键盘扫描器：Scanner"><a href="#1-5键盘扫描器：Scanner" class="headerlink" title="1.5键盘扫描器：Scanner"></a>1.5键盘扫描器：Scanner</h3><p> Scanner key=new Scanner(System.in); </p>
+<ul>
+<li>接收int类型的内容：key.nextInt();</li>
+<li>接收double类型的内容：key.nextDouble(); </li>
+<li>接收String类型的内容：key.next();或者key.nextLine(); </li>
+</ul>
+<p>关闭扫描器</p>
+<p>key.close();</p>
+<h3 id="1-6java中的运算符"><a href="#1-6java中的运算符" class="headerlink" title="1.6java中的运算符"></a>1.6java中的运算符</h3><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>赋值运算符</td>
+<td>=</td>
+</tr>
+<tr>
+<td>算数运算符</td>
+<td>+(加)、-(减)、*(乘)、/(除)、%(取余)</td>
+</tr>
+<tr>
+<td>条件运算符</td>
+<td>&lt;(小于)、&gt;(大于)、==(等于)、！=(不等于)、&lt;=(小于等于)、&gt;=(大于等于)</td>
+</tr>
+<tr>
+<td>位运算符</td>
+<td>&amp;(与)、|(或)、^（异或）、~（非）</td>
+</tr>
+<tr>
+<td>逻辑运算符</td>
+<td>&amp;&amp;(双与)、||(双或)</td>
+</tr>
+<tr>
+<td>自增，自减</td>
+<td>++、–</td>
+</tr>
+<tr>
+<td></td>
+<td>条件表达式  ？ 值1  :  值2</td>
+</tr>
+</tbody></table>
+<p>位运算符的特别说明:</p>
+<p>&amp;（与）：只有当同时为<code>true</code>的时候结果才为<code>true</code>否则是<code>false</code>；<strong>当两边是数字时，按位与(先将整数转换成2进制，然后在将两个二进制数按位或，有一 个为1，结果就为1，将后的结果再转换成10进制)</strong></p>
+<p>|（或）：左右两边有一边为<code>true</code>整个结果就为<code>true</code>；<strong>左右两边都是整数时，做按位或（先将整数转换成2进制，然后在将两个二进制数按位或，有一 个为1，结果就为1，将后的结果再转换成10进制)</strong></p>
+<p>^（异或）：按位或，只有当同时为0的时候结果才为0，否则为1. </p>
+<p>~（非）：0变1，1变0</p>
+<h2 id="二：流程控制"><a href="#二：流程控制" class="headerlink" title="二：流程控制"></a>二：流程控制</h2><h3 id="2-1-条件语句"><a href="#2-1-条件语句" class="headerlink" title="2.1 条件语句"></a>2.1 条件语句</h3><h4 id="2-1-1-if条件语句"><a href="#2-1-1-if条件语句" class="headerlink" title="2.1.1 if条件语句"></a>2.1.1 if条件语句</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">if</span><span class="token punctuation">(</span>条件语句<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    代码块<span class="token number">1</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>条件语句<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    代码块<span class="token number">2</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">else</span><span class="token punctuation">{</span>
+    代码块<span class="token number">3</span>
+<span class="token punctuation">}</span></code></pre>
+<ul>
+<li>从上到下依次判断条件是否成立，如果成绩就执行对应代码块内容，如果条件表达式都不 成立就执行else中的代码；</li>
+<li>当一旦有条件表达式成立并执行代码后，整个if语句就会结束，无论后面条件表达式是否成立都 不会再执行</li>
+</ul>
+<h4 id="2-1-2-switch多分支语句"><a href="#2-1-2-switch多分支语句" class="headerlink" title="2.1.2 switch多分支语句"></a>2.1.2 switch多分支语句</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">switch</span>（值）<span class="token punctuation">{</span>
+    <span class="token keyword">case</span> 值<span class="token number">1</span>：代码块<span class="token number">1</span> 
+    <span class="token keyword">case</span> 值<span class="token number">2</span>：代码块<span class="token number">2</span> 
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+     <span class="token keyword">case</span> 值n：代码块n
+     <span class="token keyword">default</span>：默认代码块
+<span class="token punctuation">}</span> </code></pre>
+<p>jdk1.8 只能放  <code>byte，short，char ,int,String,枚举</code>       </p>
+<p>注意：在jdk1.7以前，<code>String</code>是不能放的 </p>
+<h3 id="2-2-循环语句"><a href="#2-2-循环语句" class="headerlink" title="2.2 循环语句"></a>2.2 循环语句</h3><h4 id="2-2-1-while循环"><a href="#2-2-1-while循环" class="headerlink" title="2.2.1 while循环"></a>2.2.1 while循环</h4><pre class=" language-java"><code class="language-java"> <span class="token keyword">while</span><span class="token punctuation">(</span>条件表达式<span class="token punctuation">)</span><span class="token punctuation">{</span> 
+         代码块
+ <span class="token punctuation">}</span>
+<span class="token keyword">do</span><span class="token punctuation">{</span>
+    代码块
+<span class="token punctuation">}</span><span class="token keyword">while</span><span class="token punctuation">(</span>条件表达式<span class="token punctuation">)</span></code></pre>
+<p>只要条件表达式成立（true），就会一直重复执行代码块，直到条件表达式不能成立为false。</p>
+<p>注意：条件表达式在编译期，如果条件表达式很明显能判断为true时（如  <code>true</code>,<code>5&gt;4</code>），编译器会识别到是死循环，然后报错；</p>
+<p>但如果</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token operator">></span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre>
+<p>编译器并不会在编译期报错，因为编译器判断时无法获得n的值，所以无法做出判断，是否是死循环；</p>
+<h4 id="2-2-2-for循环语句"><a href="#2-2-2-for循环语句" class="headerlink" title="2.2.2 for循环语句"></a>2.2.2 for循环语句</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">for</span>（表达式<span class="token number">1</span><span class="token punctuation">;</span>条件表达式<span class="token punctuation">;</span>表达式<span class="token number">2</span>）<span class="token punctuation">{</span>
+    代码块
+<span class="token punctuation">}</span></code></pre>
+<p> for循环每次循环之前，需要判断一下条件表达式是否成立，如果成立才执行代码块，否则就不执行</p>
+<ul>
+<li>如果不知道循环次数，建议使用while循环 </li>
+<li>如果知道具体循环多少次，建议用for循环 </li>
+</ul>
+<h4 id="2-2-3-foreach语句"><a href="#2-2-3-foreach语句" class="headerlink" title="2.2.3 foreach语句"></a>2.2.3 foreach语句</h4><p>一般用来遍历数组或者集合</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">for</span>（数据类型 变量名：数组名）<span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre>
+<p>说明：<br>    1.数据类型为数组中元素的数据类型<br>    2.变量代表着遍历数组时的每一个元素</p>
+<h3 id="2-3-跳转语句"><a href="#2-3-跳转语句" class="headerlink" title="2.3 跳转语句"></a>2.3 跳转语句</h3><h4 id="break"><a href="#break" class="headerlink" title="break"></a>break</h4><p>跳出循环:在指定位置跳出循环 </p>
+<p>break 在需要跳出循环的位置加break </p>
+<h4 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h4><p>结束当前循环，开始下一个循环           </p>
+<p>continue: 当此次循环不需要往下执行的时候，但其他循环人就需要执行，可以用continue</p>
+<h2 id="三：数组"><a href="#三：数组" class="headerlink" title="三：数组"></a>三：数组</h2><h3 id="3-1-一维数组"><a href="#3-1-一维数组" class="headerlink" title="3.1 一维数组"></a>3.1 一维数组</h3><p>数组的作用：用来存放多个数据类型相同的数据。 </p>
+<p>注意：数组也是一种引用数据类型。 定义数组变量的格式：</p>
+<ul>
+<li><p>格式1：数据类型[] 数组名 = new 数据类型[<code>数组长度</code>];</p>
+</li>
+<li><p>格式2：数据类型[] 数组名 = {<code>值1，值2...值n</code>};</p>
+</li>
+<li><p>格式3：数据类型[] 数组名 = new 数据类型[]{<code>值1，值2...值n</code>}; </p>
+<p><code>int [] a = new int [];//错误，未指定长度</code></p>
+</li>
+</ul>
+<h3 id="3-2-二维数组"><a href="#3-2-二维数组" class="headerlink" title="3.2 二维数组"></a>3.2 二维数组</h3><ul>
+<li>格式1：数据类型[][]  数组名 = new 数据类型[<code>二维数组中有多少个数组</code>][<code>每个数组中有多少个元素</code>] </li>
+<li>格式2：数据类型[][]  数组名 = {<code>{33,25,67}</code>,<code>{28,76,9}</code>,<code>{1,2,3}</code>}; </li>
+<li>格式3： 数据类型[][]  数组名 = new int[][]{<code>{33,25,67}</code>,<code>{28,76,9}</code>,<code>{1,2,3}</code>}; </li>
+</ul>
+<p><strong>Java中没有严格意义上的二维数组：所谓的二维数组就是数组的数组</strong></p>
+<h3 id="3-3-数组的基本操作"><a href="#3-3-数组的基本操作" class="headerlink" title="3.3 数组的基本操作"></a>3.3 数组的基本操作</h3><p>Arrays：数组的工具类，里面封装了对数组的操作的方法</p>
+<h4 id="批量替换"><a href="#批量替换" class="headerlink" title="批量替换"></a>批量替换</h4><ul>
+<li>Arrays.fill(数组名，值); </li>
+<li>Arrays.fill(数组名，开始的下标包含，结束的下标不包含，值); </li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+ <span class="token comment" spellcheck="true">//批量替换：Arrays.fill(数组名，值);</span>
+Arrays<span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//批量替换，把arr中的元素全部替换成 7</span></code></pre>
+<pre><code>int[] arr = new int[] {1,2,3,4,5,6,7,8,9};
+ //批量替换：Arrays.fill(数组名，开始的下标包含，结束的下标不包含，值); 
+Arrays.fill(arr,1,5,0);
+//批量替换，把arr数组从arr[1]到arr[4]的值替换成 0;</code></pre><h4 id="复制数组"><a href="#复制数组" class="headerlink" title="复制数组"></a>复制数组</h4><ul>
+<li>Arrays.copyOf(要复制的数组,  新数组的长度); </li>
+<li>Arrays.copyOfRange(要复制的数组, 要开始读的数组下标, 读取到的数组下标（不包含）);</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">{</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span><span class="token number">89</span><span class="token punctuation">,</span><span class="token number">21</span><span class="token punctuation">,</span><span class="token number">65</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//Arrays.copyOf(要复制的数组,  新数组的长度); </span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> newArr2 <span class="token operator">=</span> Arrays<span class="token punctuation">.</span><span class="token function">copyOf</span><span class="token punctuation">(</span>arr2<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//将arr复制给newArr2，但只能复制前3位，同时newArr2的长度为3</span></code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">{</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span><span class="token number">89</span><span class="token punctuation">,</span><span class="token number">21</span><span class="token punctuation">,</span><span class="token number">65</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//Arrays.copyOfRange(要复制的数组, 要开始读的数组下标, 读取到的数组下标（不包 含）);</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> newArr3 <span class="token operator">=</span> Arrays<span class="token punctuation">.</span><span class="token function">copyOfRange</span><span class="token punctuation">(</span>arr2<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token comment" spellcheck="true">//将arr2从arr2[2]到arr2[6]复制给素组newArr3</span></code></pre>
+<p>使用Arrays.copyOf给数组扩容，缩容</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">{</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span><span class="token number">89</span><span class="token punctuation">,</span><span class="token number">21</span><span class="token punctuation">,</span><span class="token number">65</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//Arrays.copyOf(要复制的数组,  新数组的长度);</span>
+arr2 <span class="token operator">=</span> Arrays<span class="token punctuation">.</span><span class="token function">copyOf</span><span class="token punctuation">(</span>arr2<span class="token punctuation">,</span>arr2<span class="token punctuation">.</span>length<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//arr2复制给自己,但是arr2的长度变为自己原本的长度+1,也就是扩容扩1位;同样，要是缩容就用减法</span></code></pre>
+<h3 id="3-4-数组的排序"><a href="#3-4-数组的排序" class="headerlink" title="3.4 数组的排序"></a>3.4 数组的排序</h3><h4 id="3-4-1-排序方法"><a href="#3-4-1-排序方法" class="headerlink" title="3.4.1 排序方法"></a>3.4.1 排序方法</h4><ul>
+<li>冒泡排序：对比相邻的元素值，如果满足条件就交换元素值，把较小的元素移动到数组的前面，把较大 的元素移动到数组后面（也就是交换两个元素的位置），这样较小的元素就像气泡一样从底部上升到顶部</li>
+<li>选择排序：速度比冒泡排序快些<br>选择排序：将指定排序位置与其他数组元素分别对比，如果满足条件就交换元素值，注意这里区别冒泡 排序，不是交换相邻元素，而是把满足条件的元素与指定的排序位置交换（如从最后一个元素开始排 序），这样排序好的位置逐渐扩大，最后整个数组都成为已排序好的格式</li>
+<li>插入法排序：利用插入法对无序数组排序时，我们其实是将数组R划分成两个子区间R[1．．i-1]（已排好序的有序区）和R[i．．n]（当前未排序的部分，可称无序区）。插入排序的基本操作是将当前无序区的第1个记录R[i]插人到有序区R[1．．i-1]中适当的位置上，使R[1．．i]变为新的有序区。因为这种方法每次使有序区增加1个记录，通常称增量法。</li>
+</ul>
+<h4 id="3-4-2-二分法查找"><a href="#3-4-2-二分法查找" class="headerlink" title="3.4.2 二分法查找"></a>3.4.2 二分法查找</h4><p> <em>二分法：顾名思义就是要将数据每次都分成两份然后再去找到你想要的数据</em></p>
+<p>使用二分法查找的前提是：</p>
+<ul>
+<li>有序的数组，没有重复的数据元素。 </li>
+<li>如果没有排序过的，需先排序。 </li>
+<li>二分法查找时使用场景为：数据量较大时 </li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
+ *二分法查找
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">binarySearch</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>    <span class="token comment" spellcheck="true">// 二分法查找</span>
+<span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">binarySearch</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 大索引</span>
+    <span class="token keyword">int</span> maxIndex <span class="token operator">=</span> arr<span class="token punctuation">.</span>length <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 小索引</span>
+    <span class="token keyword">int</span> minIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 中间索引</span>
+    <span class="token keyword">int</span> halfIndex <span class="token operator">=</span> minIndex<span class="token operator">+</span><span class="token punctuation">(</span>maxIndex<span class="token operator">-</span>minIndex<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>minIndex<span class="token operator">&lt;=</span>maxIndex<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 找到时</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>halfIndex<span class="token punctuation">]</span><span class="token operator">==</span>a<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> halfIndex<span class="token punctuation">;</span>
+           <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>halfIndex<span class="token punctuation">]</span><span class="token operator">&lt;</span>a<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">// 比a小时</span>
+            minIndex <span class="token operator">=</span> halfIndex <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">// 比a大时</span>
+               maxIndex <span class="token operator">=</span> halfIndex <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        halfIndex <span class="token operator">=</span> minIndex<span class="token operator">+</span><span class="token punctuation">(</span>maxIndex<span class="token operator">-</span>minIndex<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> 
+    <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="3-4-3-Arrays-sort-方法"><a href="#3-4-3-Arrays-sort-方法" class="headerlink" title="3.4.3 Arrays.sort()方法"></a>3.4.3 Arrays.sort()方法</h4><p><strong>只能进行升序排列</strong></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> array <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">63</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">15</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+Arrays<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//排序后:[1, 3, 4, 15, 24, 63] </span></code></pre>
+<h4 id="3-4-4-递归"><a href="#3-4-4-递归" class="headerlink" title="3.4.4 递归"></a>3.4.4 递归</h4><p>递归：自己调用自己，直到满足一个条件结束自己调用自己的过程 </p>
+<p>递归的思想：</p>
+<p>对于一个复杂的问题，把原问题分解为若干个相对简单类同的子问题，继续下去直到子问题简单到能够直 接求解，也就是说到了递推的出口， 这样原问题就有递推得解。</p>
+<p>关键要抓住的是：</p>
+<ul>
+<li>递归出口 </li>
+<li>地推逐步向出口逼近 </li>
+</ul>
+<hr>
+<blockquote>
+<p>软帝学院传送门：</p>
+<p><a href="">http://rd.ke.qq.com</a></p>
+</blockquote>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yoursite.com" rel="external nofollow noreferrer">软帝学院</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yoursite.com/2019/12/13/fan-wen/">http://yoursite.com/2019/12/13/fan-wen/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="http://yoursite.com" target="_blank">软帝学院</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/java%E5%9F%BA%E7%A1%80/">
+                                    <span class="chip bg-color">java基础</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
+                                    <span class="chip bg-color">未完待续</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+        <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
+<link rel="stylesheet" href="/css/gitment.css">
+
+<div class="gitment-card card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitment-content" class="card-content"></div>
+</div>
+
+<script src="/libs/gitment/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+    id: 'Fri Dec 13 2019 16:04:53 GMT+0800',
+    owner: '',
+    repo: '',
+    oauth: {
+        client_id: '',
+        client_secret: ''
+    }
+});
+
+gitment.render('gitment-content');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/12/13/java-cuo-ti-ji/">
+                    <div class="card-image">
+                        
+                        <img src="https://article-1300910484.cos.ap-shanghai.myqcloud.com/java%E9%94%99%E9%A2%98%E9%9B%86.jpg" class="responsive-img" alt="java错题集">
+                        
+                        <span class="card-title">java错题集</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            在学习java的时候，也许在学习的时候明白了，但碰到一些题目的时候，就会做错。这往往就是学习的时候不够深入与细致导致的。将错题整理起来，温故而知新。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-13
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/java/" class="post-category">
+                                    java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">java基础</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%94%99%E9%A2%98%E9%9B%86/">
+                        <span class="chip bg-color">错题集</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/12/13/fan-wen/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/2.jpg" class="responsive-img" alt="java基础整理">
+                        
+                        <span class="card-title">java基础整理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            学好基础才能放心大胆地走向更远的远方
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/java/" class="post-category">
+                                    java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">java基础</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
+                        <span class="chip bg-color">未完待续</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+    
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="http://yoursite.com" target="_blank">aLagger</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">5k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    window.setTimeout("siteTime()", 1000);
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "12";
+                    var startDate = "10";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/aLagger-zyy/aLagger-zyy.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2462705471@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2462705471" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2462705471" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<div class="progress-bar"></div>
+<script language = javascript >
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        var t1 = Date.UTC(2019, 12, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00 
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); 
+        var diff = t2 - t1; var diffYears = Math.floor(diff / years); 
+        var diffDays = Math.floor((diff / days) - diffYears * 365); 
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds); document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; 
+    } 
+	siteTime(); 
+</script>
+<span id="sitetime"></span>
+ 
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true,"react":{"opacity":0.7}}});</script></body>
+
+</html>
