@@ -440,8 +440,8 @@ x++：先加入式子运">
                                 <span class="chip bg-color">java基础</span>
                             </a>
                         
-                            <a href="/tags/%E9%94%99%E9%A2%98/">
-                                <span class="chip bg-color">错题</span>
+                            <a href="/tags/%E9%94%99%E9%A2%98%E9%9B%86/">
+                                <span class="chip bg-color">错题集</span>
                             </a>
                         
                     </div>
@@ -479,7 +479,7 @@ x++：先加入式子运">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    881
+                    1.5k
                 </div>
                 
 	<div class="info-break-policy">
@@ -496,7 +496,7 @@ x++：先加入式子运">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="java语法"><a href="#java语法" class="headerlink" title="java语法"></a>java语法</h1><pre class=" language-java"><code class="language-java"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>  
+                <h2 id="java语法"><a href="#java语法" class="headerlink" title="java语法"></a>java语法</h2><pre class=" language-java"><code class="language-java"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>  
 x <span class="token operator">=</span> x<span class="token operator">++</span> <span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">;</span>
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
 程序会输出（D）。 
@@ -518,19 +518,20 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
  A.开发一个Java程序，需要完整的JDK
  B.运行一个Java程序，需要完整的JDK
  C.运行一个Java程序，只需要JDK中的JRE
- D.以上说法都不对</code></pre><p>使用Java之前  ： 安装JDK<br>JDK  : Java运行的环境  JVM（Java虚拟机） + JRE Java所依赖的类库<br>Java跨平台 </p>
+ D.以上说法都不对</code></pre><p>使用Java之前  ： 安装JDK </p>
+<p>JDK  : Java运行的环境  JVM（Java虚拟机） + JRE Java所依赖的类库<br>Java跨平台 </p>
 <p>运行Java程序  .java<br>使用javac命令将Java文件编程成.class的字节码文件<br>再使用 java 命令 运行.class字节码文件 （JVM运行）</p>
 <p><strong>那么为什么要将java文件编程成.clsaa的字节码文件呢？</strong></p>
-<p>因为   程序 =  数据结构+算法，程序是程序员能看懂的代码，而计算机看不懂，计算机要将程序转换成程序能看懂的字节码件。</p>
+<p>因为   程序 =  数据结构+算法，程序是程序员能看懂的代码，而计算机看不懂，计算机要将程序转换成程序能看懂的字节码件；</p>
 <hr>
 <pre><code>(多选题)下列对Java变量的使用说法正确的是（ CD） 
  A.声明变量可以指定数据类型，也可以不指定
  B.变量名采用任意命名的方式，尽量做到见名知意
  C.局部变量声明后，要为其赋一个确定的初值后再使用
- D.变量是指在内存中开辟的存储空间中存放的运算过程中需要用到的数据。</code></pre><p>变量的命名规则（法律：必须遵守的）**</p>
-<p>   只能以字母下划线或者$开始，不能包含特殊字符，不能使用Java关键字</p>
+ D.变量是指在内存中开辟的存储空间中存放的运算过程中需要用到的数据。</code></pre><p><strong>变量的命名规则（法律：必须遵守的）</strong></p>
+<p>   只能以字母下划线或者$开始，不能包含特殊字符，不能使用Java关键字；</p>
 <p><strong>变量的命名规范 （道德：约束）</strong></p>
-<p>  变量名要见名知意<br>  驼峰命名法： 首字母小写，多个单词组成，从第二个单词首字母大写。<br>比如：开始游戏的变量  startGame</p>
+<p>  变量名要见名知意<br>  驼峰命名法： 首字母小写，多个单词组成，从第二个单词首字母大写；<br>比如：开始游戏的变量  startGame</p>
 <hr>
 <pre><code>(多选题)变量定义如下：   
 int i = 128;
@@ -551,18 +552,46 @@ case 2:System.out.println(y);break;
 case 1.5:System.out.println(x);break; 
 case 2.0:System.out.println(y);break; 
 }</code></pre><p><strong>switch括号中的值，可以是什么类型的？</strong><br>jdk1.7以前 ： byte,short,char,int  ，枚举<br>jdk1.7以后 ：除了上面的几种类型，还可以放String</p>
-<p><strong>switch 的运行机制：</strong><br>会根据括号中的值，去匹配case中的值，一旦匹配到了值，就会从当前的case语句开始一直往下执行<br>直到遇到break或者switch语句为止。</p>
+<p><strong>switch 的运行机制：</strong><br>会根据括号中的值，去匹配case中的值，一旦匹配到了值，就会从当前的case语句开始一直往下执行<br>直到遇到break或者switch语句为止；</p>
 <hr>
-<h1 id="OOP面向对象"><a href="#OOP面向对象" class="headerlink" title="OOP面向对象"></a>OOP面向对象</h1><p><img src="https://article-1300910484.cos.ap-shanghai.myqcloud.com/java%E9%94%99%E9%A2%98%E9%9B%86/2.png" alt=""></p>
+<h2 id="OOP面向对象"><a href="#OOP面向对象" class="headerlink" title="OOP面向对象"></a>OOP面向对象</h2><p><img src="https://article-1300910484.cos.ap-shanghai.myqcloud.com/java%E9%94%99%E9%A2%98%E9%9B%86/2.png" alt=""></p>
+<p>答案：D</p>
+<p>解析：<code>A instanceof B</code> 是用来判断 A 类是否是 B 类的子类，实现类的实例，是则返回<code>true</code>   不是有则返回<code>false</code>;    在第07行中，animal是Dog类的引用，与08行中的Cat类并不存在继承关系，所以返回<code>false</code>，执行else中的语句；</p>
 <hr>
 <p><img src="https://article-1300910484.cos.ap-shanghai.myqcloud.com/java%E9%94%99%E9%A2%98%E9%9B%86/3.png" alt=""></p>
+<p>答案：D</p>
+<p>解析：在第4行中，用Teacher类型定义了一个teachers数组，但是在数组teachers中，没有存入任何的元素，所以在teachers中，teachers[0]=null,teachers[1]=null；既然元素为空，那么在第5行中，就不能 . 出name，所以会在运行时抛出异常；</p>
 <hr>
 <p><img src="https://article-1300910484.cos.ap-shanghai.myqcloud.com/java%E9%94%99%E9%A2%98%E9%9B%86/4.png" alt=""></p>
+<p>答案：C</p>
+<p>解析：第19行实例化Employee的时候，调用了Employee的有参构造器；在java中，子类的有参构造器会默认在第一行有super（），即调用父类的无参构造器；而在父类中，Person是没有无参构造器的，因为Person有一个有参构造器。在有有参构造器的情况下，如果不写无参构造器，那么就不会有一个默认的无参构造器。所以Person没有无参的构造器，子类有参构造器调用父类无参构造器失败，就会在第12行报错；</p>
 <p><img src="https://article-1300910484.cos.ap-shanghai.myqcloud.com/java%E9%94%99%E9%A2%98%E9%9B%86/5.png" alt=""></p>
+<p>答案：B</p>
+<p>解析：难点在11行，<code>(A)new B().start</code>的意思是新建一个B的实例，再将这个实例给向上转换成A类，然后调用里面的start()方法。在类的多态中：</p>
+<table>
+<thead>
+<tr>
+<th align="center">使用多态调用属性</th>
+<th align="center">使用多态调用方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">看对象的类型是，声明时的类型是什么，调用的属性就是哪个类里面的</td>
+<td align="center">如果子类覆盖了父类的方法，调用的就是子类的方法。</td>
+</tr>
+</tbody></table>
+<p>所以调用的B类中的start()方法；</p>
 <hr>
 <p><img src="https://article-1300910484.cos.ap-shanghai.myqcloud.com/java%E9%94%99%E9%A2%98%E9%9B%86/6.png" alt=""></p>
+<p>答案：AC</p>
+<p>解析：A：move方法中的类型与参数相同，所以是重写；子类中，如果要重写父类的方法，那么前面的修饰符不可以比父类的方法更加严格，所以A是对的；public(公有的)&gt;protected(受保护的)&gt;default(缺省)&gt;private(私有的)</p>
+<p>​            B：move是父类的重写，可是修饰符比父类更加严格，所以是错的；</p>
+<p>​            C：move方法中的类型相同，但是参数不同，所以是重载；C是对的；</p>
+<p>​            D：move方法中类型不同，参数相同，所以既不是重写也不是重载；那么子类与父类的方法重名了，所以D错误；</p>
 <hr>
 <p><img src="https://article-1300910484.cos.ap-shanghai.myqcloud.com/java%E9%94%99%E9%A2%98%E9%9B%86/7.png" alt=""></p>
+<p>答案：BC</p>
+<p>解析：类新建的对象都是存储在 堆 中的，类的引用是存放在 栈 中的，栈存放类的对象的地址跟常量值；</p>
 
             </div>
             <hr/>
@@ -630,8 +659,8 @@ case 2.0:System.out.println(y);break;
                                     <span class="chip bg-color">java基础</span>
                                 </a>
                             
-                                <a href="/tags/%E9%94%99%E9%A2%98/">
-                                    <span class="chip bg-color">错题</span>
+                                <a href="/tags/%E9%94%99%E9%A2%98%E9%9B%86/">
+                                    <span class="chip bg-color">错题集</span>
                                 </a>
                             
                         </div>
@@ -866,8 +895,8 @@ gitment.render('gitment-content');
                         <span class="chip bg-color">java基础</span>
                     </a>
                     
-                    <a href="/tags/%E9%94%99%E9%A2%98/">
-                        <span class="chip bg-color">错题</span>
+                    <a href="/tags/%E9%94%99%E9%A2%98%E9%9B%86/">
+                        <span class="chip bg-color">错题集</span>
                     </a>
                     
                 </div>
@@ -919,8 +948,8 @@ gitment.render('gitment-content');
                         <span class="chip bg-color">java基础</span>
                     </a>
                     
-                    <a href="/tags/%E9%94%99%E9%A2%98/">
-                        <span class="chip bg-color">错题</span>
+                    <a href="/tags/%E9%94%99%E9%A2%98%E9%9B%86/">
+                        <span class="chip bg-color">错题集</span>
                     </a>
                     
                 </div>
@@ -1070,7 +1099,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">881</span>&nbsp;字
+                class="white-color">1.5k</span>&nbsp;字
             
             
             
