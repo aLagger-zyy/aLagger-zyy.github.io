@@ -11,6 +11,20 @@
         <content type="html"><![CDATA[<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>继承的关键字Extends- &gt;public class 子类extends 父类{} </p><pre class=" language-java"><code class="language-java"><span class="token number">1</span> <span class="token comment" spellcheck="true">//猫类</span><span class="token number">2</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Cat</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span><span class="token punctuation">{</span><span class="token number">3</span><span class="token number">4</span> <span class="token punctuation">}</span><span class="token number">5</span><span class="token number">6</span> <span class="token comment" spellcheck="true">//狗狗类</span><span class="token number">7</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span><span class="token punctuation">{</span><span class="token number">8</span><span class="token number">9</span> <span class="token punctuation">}</span></code></pre><p> 父类：定义子类共有的特征和行为 </p><p> 如何设计父类？ 将子类共有的特点（静态的，属性）和行为（动态的，方法）抽离出 来，定义成父类 如何设计子类？将子类特有的特点和行为定义在子类中，其他的特点和行为使用父类中 的 </p>]]></content>
       
       
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> java 基础 </tag>
+            
+        </tags>
       
     </entry>
     
