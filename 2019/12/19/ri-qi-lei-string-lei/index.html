@@ -4,9 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JDK核心API小结, Zyy&#39;s Blog">
-    <meta name="description" content="一、Date类
-">
+    <meta name="keywords" content="日期类&amp;String类, Zyy&#39;s Blog">
+    <meta name="description" content="一、日期类1.long类型的时间（时间的毫秒数）使用情况较少
+1.1 获取当前的时间获取到当前日期的毫秒数 ，long类型
+long time = System.currentTimeMillis();
+1.2 输入毫秒数直接输出time，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>JDK核心API小结 | Zyy&#39;s Blog</title>
+    <title>日期类&amp;String类 | Zyy&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,13 +306,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        JDK核心API小结
+                        日期类&amp;String类
                     </div>
                 </div>
             </div>
@@ -436,6 +438,10 @@
                                 <span class="chip bg-color">阶段小结</span>
                             </a>
                         
+                            <a href="/tags/java%E6%A0%B8%E5%BF%83API/">
+                                <span class="chip bg-color">java核心API</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -471,7 +477,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3
+                    1.4k
                 </div>
                 
 	<div class="info-break-policy">
@@ -488,8 +494,149 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>一、Date类</p>
+                <h2 id="一、日期类"><a href="#一、日期类" class="headerlink" title="一、日期类"></a>一、日期类</h2><h3 id="1-long类型的时间（时间的毫秒数）"><a href="#1-long类型的时间（时间的毫秒数）" class="headerlink" title="1.long类型的时间（时间的毫秒数）"></a>1.long类型的时间（时间的毫秒数）</h3><p>使用情况较少</p>
+<h4 id="1-1-获取当前的时间"><a href="#1-1-获取当前的时间" class="headerlink" title="1.1 获取当前的时间"></a>1.1 获取当前的时间</h4><p>获取到当前日期的毫秒数 ，long类型</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">long</span> time <span class="token operator">=</span> System<span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="1-2-输入毫秒数"><a href="#1-2-输入毫秒数" class="headerlink" title="1.2 输入毫秒数"></a>1.2 输入毫秒数</h4><p>直接输出time，得到的是一长串数字，即当前时间的毫秒数</p>
+<pre class=" language-java"><code class="language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"当前的毫秒数"</span><span class="token operator">+</span>time<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="1-3-将毫秒换算成年份"><a href="#1-3-将毫秒换算成年份" class="headerlink" title="1.3 将毫秒换算成年份"></a>1.3 将毫秒换算成年份</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//当前时间2019年12月</span>
+<span class="token comment" spellcheck="true">//除以1000毫秒，除以60秒，除以60分钟,除以24小时,除以一年365天</span>
+<span class="token keyword">int</span> year <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span>time<span class="token operator">/</span><span class="token number">1000</span><span class="token operator">/</span><span class="token number">60</span><span class="token operator">/</span><span class="token number">60</span><span class="token operator">/</span><span class="token number">24</span><span class="token operator">/</span><span class="token number">365</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><strong>这里的year时间是输出49</strong>，因为计算机中时间的其实从1970年开始</p>
+<h3 id="2-date类型的时间"><a href="#2-date类型的时间" class="headerlink" title="2.date类型的时间"></a>2.date类型的时间</h3><p>因为千年虫问题，所以很多方法过时</p>
+<h4 id="2-1-获取当前的时间"><a href="#2-1-获取当前的时间" class="headerlink" title="2.1 获取当前的时间"></a>2.1 获取当前的时间</h4><pre class=" language-java"><code class="language-java">Date date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"日期为"</span><span class="token operator">+</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//输出日期为Tue Dec 10 21:17:03 CST 2019</span></code></pre>
+<h4 id="2-2-获取年份月份"><a href="#2-2-获取年份月份" class="headerlink" title="2.2 获取年份月份"></a>2.2 获取年份月份</h4><h5 id="获取年份"><a href="#获取年份" class="headerlink" title="获取年份"></a>获取年份</h5><p>这个方法会有横线，代表这个方法已经过时了，很少被用到，因为有千年虫的问题，导致结果不对</p>
+<pre class=" language-java"><code class="language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"年份"</span><span class="token operator">+</span>date<span class="token punctuation">.</span><span class="token function">getYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出119</span></code></pre>
+<h5 id="获取月份"><a href="#获取月份" class="headerlink" title="获取月份"></a>获取月份</h5><pre class=" language-java"><code class="language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"年份"</span><span class="token operator">+</span>date<span class="token punctuation">.</span><span class="token function">getMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出12</span></code></pre>
+<h3 id="3-calendar（格林威治时间）"><a href="#3-calendar（格林威治时间）" class="headerlink" title="3.calendar（格林威治时间）"></a>3.calendar（格林威治时间）</h3><h4 id="3-1-创建格林威治时间对象"><a href="#3-1-创建格林威治时间对象" class="headerlink" title="3.1 创建格林威治时间对象"></a>3.1 创建格林威治时间对象</h4><p>获取格林威治的时间有两种方式</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//第一种：通过子类创建格林威治时间对象</span>
+Calendar cal <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GregorianCalendar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//第二种：使用工厂方法创建对象，不使用new，这是系统给的另一个创建日历类对象的方法</span>
+<span class="token comment" spellcheck="true">//推荐使用</span>
+Calendar cal <span class="token operator">=</span> Calendar<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>cal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//输出cal:java.util.GregorianCalendar[里面是各种参数的值]</span></code></pre>
+<h4 id="3-2-获取具体的时间"><a href="#3-2-获取具体的时间" class="headerlink" title="3.2 获取具体的时间"></a>3.2 获取具体的时间</h4><p><strong>首先可以将格林威治转换为Date类型，也可以转换成long类型，然后直接输出</strong></p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//转换为Date类型后，可以使用Date类型中的方法</span>
+Date date <span class="token operator">=</span> cal<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//Tue Dec 10 21:27:15 CST 2019</span>
+<span class="token comment" spellcheck="true">//转换为Long类型，获取的是时间的毫秒数，从1970年到现在</span>
+<span class="token keyword">long</span> times <span class="token operator">=</span> cal<span class="token punctuation">.</span><span class="token function">getTimeInMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>times<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//1576860071198</span></code></pre>
+<p><strong>获取到具体的时间</strong>(<code>get()</code>方法)</p>
+<p><strong>注意：</strong></p>
+<ul>
+<li>月份的范围是0-11（即一月为0）</li>
+<li>星期的范围是0-6且星期的顺序为（周日0，周六6）</li>
+<li><code>get( 参数)</code>里的参数是<code>int</code>型的数据，返回值也是<code>int</code>类型</li>
+</ul>
+<pre class=" language-java"><code class="language-java">Calendar cal <span class="token operator">=</span> Calendar<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//获取到年份</span>
+cal<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>YEAR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//获取到月份（范围是0-11）</span>
+cal<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>MONTH<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//获取到当前时间是这个月的第几天</span>
+<span class="token comment" spellcheck="true">//两种办法</span>
+cal<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>DAY_OF_MONTH<span class="token punctuation">)</span><span class="token punctuation">;</span>
+cal<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>DATE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//获取到当前时间是这周的第几天（范围0-6）</span>
+cal<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>DAY_OF_WEEK<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//获取当前时间所在的周在这个月的第几周</span>
+cal<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>DAY_OF_WEEK_IN_MONTH<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//按照12小时制获取当前的小时</span>
+cal<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>HOUR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//按照24小时制获取当前的小时</span>
+cal<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>HOUR_OF_DAY<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//获取到分钟</span>
+cal<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>MINUTE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//获取到秒数</span>
+cal<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>SECOND<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="修改时间（set，add方法）"><a href="#修改时间（set，add方法）" class="headerlink" title="修改时间（set，add方法）"></a><strong>修改时间</strong>（<code>set</code>，<code>add</code>方法）</h4><p><strong>set方法</strong></p>
+<p>参数列表：(<code>需要修改的时间</code>，<code>修改后的数据</code>)</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//修改年份</span>
+cal<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>YEAR<span class="token punctuation">,</span><span class="token number">2018</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//修改月份为2月</span>
+cal<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>MONTH<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//再将当前月份的日期修改为31号</span>
+cal<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>DAY_OF_MONTH<span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//这个时候会输出3月3号，日历会根据每月的天数，自动跳到次月</span></code></pre>
+<p><strong>add方法</strong></p>
+<p>参数列表：（<code>需要修改的时间</code>，<code>需要往时间上加的数据</code>）</p>
+<pre class=" language-java"><code class="language-java">cal<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>YEAR<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//当前的年份2019，+2，变为2021</span>
+<span class="token comment" spellcheck="true">//如果需要时间回退，那只需后面的参数变成负数就可以了</span></code></pre>
+<h3 id="4-定时器"><a href="#4-定时器" class="headerlink" title="4.定时器"></a>4.定时器</h3><pre class=" language-java"><code class="language-java"> <span class="token comment" spellcheck="true">//创建定时器</span>
+Timer timer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Timer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//定时器的任务调度，自动执行</span>
+timer<span class="token punctuation">.</span><span class="token function">schedule</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">TimerTask</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//匿名内部类，重写run方法，定时器需要执行的操作</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// TODO Auto‐generated method stub</span>
+    Date d3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">/</span>转换输出时间
+    SimpleDateFormat format4 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    String str3 <span class="token operator">=</span> format4<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>d3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//这里的参数，开始时间，每次调度任务执行的间隔</span>
+
+<span class="token comment" spellcheck="true">//每隔10秒输出一次时间</span></code></pre>
+<h3 id="5-日期类与字符串的互相转换"><a href="#5-日期类与字符串的互相转换" class="headerlink" title="5.日期类与字符串的互相转换"></a>5.日期类与字符串的互相转换</h3><p>日期类与字符串相互转换，主要用到<code>SimpleDateFormat</code>转换工具类</p>
+<p>字符串转<code>Date</code>用<code>parse</code></p>
+<pre class=" language-java"><code class="language-java">String str <span class="token operator">=</span> <span class="token string">"2019-12-12 20:20:20"</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//y:代表年</span>
+<span class="token comment" spellcheck="true">//M:代表月份</span>
+<span class="token comment" spellcheck="true">//d:日</span>
+<span class="token comment" spellcheck="true">//E:星期</span>
+<span class="token comment" spellcheck="true">//a:上午，下午</span>
+<span class="token comment" spellcheck="true">//H:小时</span>
+<span class="token comment" spellcheck="true">//m:分</span>
+<span class="token comment" spellcheck="true">//s:秒</span>
+SimpleDateFormat format <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Date date <span class="token operator">=</span> format<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>日期类型转化为字符串用<code>format</code></p>
+<pre class=" language-java"><code class="language-java">Date date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//同样使用SimpleDateFormat类转换，先定义转换格式</span>
+SimpleDateFormat format2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"yyyy/MM/dd HH/mm"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//使用format方法将日期转换为字符串</span>
+String str2 <span class="token operator">=</span> format2<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>日期类型中的时区</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//设置时区</span>
+TimeZone zone <span class="token operator">=</span> TimeZone<span class="token punctuation">.</span><span class="token function">getTimeZone</span><span class="token punctuation">(</span><span class="token string">"GTM+8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//设置时间输出格式</span>
+SimpleDateFormat format3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//设置时区</span>
+format<span class="token punctuation">.</span><span class="token function">setTimeZone</span><span class="token punctuation">(</span>zone<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="6-三种日期类型的互相转换"><a href="#6-三种日期类型的互相转换" class="headerlink" title="6.三种日期类型的互相转换"></a>6.三种日期类型的互相转换</h3><h4 id="long转Date转Calendar"><a href="#long转Date转Calendar" class="headerlink" title="long转Date转Calendar"></a>long转Date转Calendar</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//long先转Date</span>
+<span class="token keyword">long</span> longTime <span class="token operator">=</span> System<span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Date date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>longTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//Date再转Calendar</span>
+Calendar cal <span class="token operator">=</span> Calendar<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+cal<span class="token punctuation">.</span><span class="token function">setTime</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="Calendar转Date转long"><a href="#Calendar转Date转long" class="headerlink" title="Calendar转Date转long"></a>Calendar转Date转long</h4><pre class=" language-java"><code class="language-java">Calendar cal <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GregorianCalendar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//calendar转Date</span>
+Date date <span class="token operator">=</span> cal<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//Date再转long</span>
+<span class="token keyword">long</span> longTime <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="7-定时器"><a href="#7-定时器" class="headerlink" title="7. 定时器"></a>7. 定时器</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//创建定时器</span>
+Timer timer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Timer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//定时器的任务调度，自动执行</span>
+timer<span class="token punctuation">.</span><span class="token function">schedule</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">TimerTask</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//匿名内部类，重写run方法，定时器需要执行的操作</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Date date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//转换输出时间</span>
+        SimpleDateFormat format <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String str <span class="token operator">=</span> format<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这里的参数，开始时间，每次调度任务执行的间隔</span>
+<span class="token comment" spellcheck="true">//每隔10秒输出一次时间</span></code></pre>
+<h2 id="二、String类"><a href="#二、String类" class="headerlink" title="二、String类"></a>二、String类</h2>
             </div>
             <hr/>
 
@@ -514,7 +661,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2019/12/19/jdk-he-xin-api-xiao-jie/">http://yoursite.com/2019/12/19/jdk-he-xin-api-xiao-jie/</a>
+                    <a href="http://yoursite.com/2019/12/19/ri-qi-lei-string-lei/">http://yoursite.com/2019/12/19/ri-qi-lei-string-lei/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -558,6 +705,10 @@
                             
                                 <a href="/tags/%E9%98%B6%E6%AE%B5%E5%B0%8F%E7%BB%93/">
                                     <span class="chip bg-color">阶段小结</span>
+                                </a>
+                            
+                                <a href="/tags/java%E6%A0%B8%E5%BF%83API/">
+                                    <span class="chip bg-color">java核心API</span>
                                 </a>
                             
                         </div>
@@ -991,13 +1142,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2019/12/19/jdk-he-xin-api-xiao-jie/">
+                <a href="/2019/12/19/ri-qi-lei-string-lei/">
                     <div class="card-image">
                         
                         
-                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/22.jpg" class="responsive-img" alt="JDK核心API小结">
+                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/5.jpg" class="responsive-img" alt="日期类&String类">
                         
-                        <span class="card-title">JDK核心API小结</span>
+                        <span class="card-title">日期类&String类</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1034,6 +1185,10 @@
                         <span class="chip bg-color">阶段小结</span>
                     </a>
                     
+                    <a href="/tags/java%E6%A0%B8%E5%BF%83API/">
+                        <span class="chip bg-color">java核心API</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1045,19 +1200,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/18/html5-jian-dan-bi-ji-2/">
+                <a href="/2019/12/18/html5-jian-dan-bi-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/1.jpg" class="responsive-img" alt="Html5简单笔记2">
+                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/11.jpg" class="responsive-img" alt="Html5简单笔记">
                         
-                        <span class="card-title">Html5简单笔记2</span>
+                        <span class="card-title">Html5简单笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            学校的javaweb实训，Html5笔记（2）
+                            学校的javaweb实训，Html5笔记
                         
                     </div>
                     <div class="publish-info">
@@ -1234,7 +1389,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">14.6k</span>&nbsp;字
+                class="white-color">15.9k</span>&nbsp;字
             
             
             
