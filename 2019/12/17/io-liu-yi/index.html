@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="IO (一), Zyy&#39;s Blog">
+    <meta name="keywords" content="IO流 (一), Zyy&#39;s Blog">
     <meta name="description" content="File文件夹的基本操作：File dir = new File(&#34;dir&#34;);
 //注意：File类只能操作文件本身，但不能操作文件的内容
 //&#34;dir&#34;是参数，是待操作的文件或文件夹的路径
@@ -18,7 +18,7 @@ dir.">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>IO (一) | Zyy&#39;s Blog</title>
+    <title>IO流 (一) | Zyy&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,13 +308,13 @@ dir.">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        IO (一)
+                        IO流 (一)
                     </div>
                 </div>
             </div>
@@ -466,7 +466,7 @@ dir.">
 	</div>
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-13
+                    2019-12-17
                 </div>
                 
 
@@ -607,7 +607,7 @@ file<span class="token punctuation">.</span><span class="token function">getAbso
 <li>带缓冲区比不带缓冲区的效率更高</li>
 <li>字节缓冲流不能直接操作文件，必须包装字节流，通过字节流进行操作</li>
 </ul>
-<h3 id="IO流的使用流程"><a href="#IO流的使用流程" class="headerlink" title="IO流的使用流程"></a>IO流的使用流程</h3><p>字节输出流：<code>OutputStream</code>（程序—–&gt;外界）</p>
+<h3 id="IO流的使用流程"><a href="#IO流的使用流程" class="headerlink" title="IO流的使用流程"></a>IO流的使用流程</h3><p><strong>字节输出流：</strong><code>OutputStream</code>（程序—–&gt;外界）</p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//创建文件对象</span>
 File file <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"word.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//向word写东西，由程序向外输出内容</span>
@@ -632,7 +632,7 @@ outPs<span class="token punctuation">.</span><span class="token function">write<
 outPS<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>bytes<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//从第二位开始哦，截取4个字节写入</span>
 <span class="token comment" spellcheck="true">//输入输出流关闭</span>
 outPS<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>字节输入流：<code>InputStream</code>（外界—–&gt;程序）</p>
+<p><strong>字节输入流</strong>：<code>InputStream</code>（外界—–&gt;程序）</p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//创建文件对象</span>
 File file <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"word.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//使用子类创建InputStream对象</span>
@@ -688,7 +688,7 @@ inPS<span class="token punctuation">.</span><span class="token function">close</
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2019/12/13/io-liu-yi/">http://yoursite.com/2019/12/13/io-liu-yi/</a>
+                    <a href="http://yoursite.com/2019/12/17/io-liu-yi/">http://yoursite.com/2019/12/17/io-liu-yi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1164,31 +1164,31 @@ inPS<span class="token punctuation">.</span><span class="token function">close</
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/12/15/java-zhong-de-yi-chang/">
+                <a href="/2019/12/18/html5-jian-dan-bi-ji-2/">
                     <div class="card-image">
                         
                         
-                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/7.jpg" class="responsive-img" alt="Java中的异常">
+                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/1.jpg" class="responsive-img" alt="Html5简单笔记2">
                         
-                        <span class="card-title">Java中的异常</span>
+                        <span class="card-title">Html5简单笔记2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            java中常见的异常与处理方式
+                            学校的javaweb实训，Html5笔记（2）
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-15
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-18
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%98%B6%E6%AE%B5%E5%B0%8F%E7%BB%93/" class="post-category">
-                                    阶段小结
+                            <a href="/categories/javaweb%E5%AE%9E%E8%AE%AD/" class="post-category">
+                                    javaweb实训
                                 </a>
                             
                             
@@ -1198,8 +1198,12 @@ inPS<span class="token punctuation">.</span><span class="token function">close</
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
+                    <a href="/tags/Html5/">
+                        <span class="chip bg-color">Html5</span>
+                    </a>
+                    
+                    <a href="/tags/Visual/">
+                        <span class="chip bg-color">Visual</span>
                     </a>
                     
                 </div>
@@ -1213,23 +1217,24 @@ inPS<span class="token punctuation">.</span><span class="token function">close</
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/13/oop-mian-xiang-dui-xiang-zong-jie/">
+                <a href="/2019/12/17/io-liu-er/">
                     <div class="card-image">
                         
-                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/3.jpg" class="responsive-img" alt="OOP面向对象">
                         
-                        <span class="card-title">OOP面向对象</span>
+                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/22.jpg" class="responsive-img" alt="IO流（二）">
+                        
+                        <span class="card-title">IO流（二）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、先整体，再局部,2、先抽象，再具体,3、能做什么，再怎么做
+                            字节流复制文件，字符流的输入输出流，编码格式，字符缓冲流
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-17
                             </span>
                         <span class="publish-author">
                             
@@ -1250,8 +1255,8 @@ inPS<span class="token punctuation">.</span><span class="token function">close</
                         <span class="chip bg-color">java</span>
                     </a>
                     
-                    <a href="/tags/java%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">java基础</span>
+                    <a href="/tags/IO%E6%B5%81/">
+                        <span class="chip bg-color">IO流</span>
                     </a>
                     
                 </div>
@@ -1401,7 +1406,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">23k</span>&nbsp;字
+                class="white-color">24.5k</span>&nbsp;字
             
             
             
