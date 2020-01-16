@@ -4,19 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="git入门笔记, Zyy&#39;s Blog">
-    <meta name="description" content="Git命令使用
-初始化git仓库
-git init
-查看当前git仓库状态的命令
-git status
-将工作区的改变提交到暂存区中
-//提交某个文件
-git add 001.txt
-//提交所有的文件
-git add .
-
-再次查看git">
+    <meta name="keywords" content="序列化与反序列化技术, Zyy&#39;s Blog">
+    <meta name="description" content="持久化技术将内存中的临时数据，保存到本地硬盘的技术；持久化之后，即使程序重启，也不会造成数据的丢失和重置
+使用常规的方法将数据存取在文件中将集合中的数据写入文件//创建student集合
+List&amp;lt;Student&gt; stus = ne">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +15,7 @@ git add .
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>git入门笔记 | Zyy&#39;s Blog</title>
+    <title>序列化与反序列化技术 | Zyy&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -314,13 +305,13 @@ git add .
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        git入门笔记
+                        序列化与反序列化技术
                     </div>
                 </div>
             </div>
@@ -438,12 +429,8 @@ git add .
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/git/">
-                                <span class="chip bg-color">git</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%A0%81%E4%BA%91/">
-                                <span class="chip bg-color">码云</span>
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
                             </a>
                         
                     </div>
@@ -454,8 +441,8 @@ git add .
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/javaweb%E5%AE%9E%E8%AE%AD/" class="post-category">
-                                javaweb实训
+                            <a href="/categories/%E9%98%B6%E6%AE%B5%E5%B0%8F%E7%BB%93/" class="post-category">
+                                阶段小结
                             </a>
                         
                     </div>
@@ -467,12 +454,12 @@ git add .
                 
 	<div class="text-color" align=center style="font-size:large">
     	
-      	  <i class="far fa-square"></i> aLager
+      	  <i class="far fa-square"></i> 软帝学院
    	 
 	</div>
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-17
+                    2020-01-16
                 </div>
                 
 
@@ -481,12 +468,12 @@ git add .
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    716
+                    1.5k
                 </div>
                 
 	<div class="info-break-policy">
     	
-     	   <i class="fa fa-pencil"></i> 作者: aLager
+     	   <i class="fa fa-pencil"></i> 作者: 软帝学院
      	
               </div>
                 
@@ -498,115 +485,157 @@ git add .
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Git命令使用"><a href="#Git命令使用" class="headerlink" title="Git命令使用"></a>Git命令使用</h2><ol>
-<li><p>初始化git仓库</p>
-<pre><code>git init</code></pre></li>
-<li><p>查看当前git仓库状态的命令</p>
-<pre><code>git status</code></pre></li>
-<li><p>将<strong>工作区</strong>的改变提交到<strong>暂存区</strong>中</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//提交某个文件</span>
-git add <span class="token number">001</span><span class="token punctuation">.</span>txt
-<span class="token comment" spellcheck="true">//提交所有的文件</span>
-git add <span class="token punctuation">.</span></code></pre>
-</li>
-<li><p>再次查看git仓库的状态</p>
-<pre><code>git status</code></pre></li>
-<li><p>最终提交到版本库中</p>
-<pre class=" language-java"><code class="language-java">git commit <span class="token operator">-</span>m <span class="token string">"干嘛了，做了哪些改变"</span>
-<span class="token comment" spellcheck="true">//m: message</span></code></pre>
-</li>
-<li><p>再次查看git仓库的状态</p>
-<pre><code>git status</code></pre></li>
-</ol>
-<h2 id="主分支和从分支"><a href="#主分支和从分支" class="headerlink" title="主分支和从分支"></a>主分支和从分支</h2><p>默认的分支-主分支master-项目经理</p>
+                <h2 id="持久化技术"><a href="#持久化技术" class="headerlink" title="持久化技术"></a>持久化技术</h2><p>将内存中的临时数据，保存到本地硬盘的技术；持久化之后，即使程序重启，也不会造成数据的丢失和重置</p>
+<h2 id="使用常规的方法将数据存取在文件中"><a href="#使用常规的方法将数据存取在文件中" class="headerlink" title="使用常规的方法将数据存取在文件中"></a>使用常规的方法将数据存取在文件中</h2><h3 id="将集合中的数据写入文件"><a href="#将集合中的数据写入文件" class="headerlink" title="将集合中的数据写入文件"></a>将集合中的数据写入文件</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//创建student集合</span>
+List<span class="token operator">&lt;</span>Student<span class="token operator">></span> stus <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>Student<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+stus<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">"小马"</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+stus<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">"小菜"</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+stus<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">"小希"</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//将集合中的数据写入文件</span>
+BufferedWriter bw <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedWriter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">OutputStreamWriter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"路径"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//向文件中写数据</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>Student stu <span class="token operator">:</span> stus<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    bw<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>stu<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    bw<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>stu<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    bw<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>stu<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    bw<span class="token punctuation">.</span><span class="token function">newLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    bw<span class="token punctuation">.</span><span class="token function">fulsh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*
+查看文件的时候，会发现出了字符串，其他都是乱码，可以使用+""转成字符串
+bw.write(stu.getId()+",");//转成字符串
+bw.write(stu.getName()+",");
+bw.write(stu.getAge()+"");
+*/</span>
+bw<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="将文件中的数据存入集合之中"><a href="#将文件中的数据存入集合之中" class="headerlink" title="将文件中的数据存入集合之中"></a>将文件中的数据存入集合之中</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//创建集合存放学生数据</span>
+List<span class="token operator">&lt;</span>Student<span class="token operator">></span> stus <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>Student<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//读取学生的数据</span>
+BufferedReader br <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedReader</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">InputStreamReader</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"路径"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//存放读出来的每条字符串的数据</span>
+String strStu<span class="token punctuation">;</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">(</span>strStu<span class="token operator">=</span>br<span class="token punctuation">.</span><span class="token function">readLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//文本中每一行的字符串</span>
+    <span class="token comment" spellcheck="true">//1,小马,16</span>
+    <span class="token comment" spellcheck="true">//2,小菜,16</span>
+    <span class="token comment" spellcheck="true">//3,小希,18</span>
+    <span class="token comment" spellcheck="true">//将字符串按照“，”分割，每个字符串会被分成一个字符串数组</span>
+    String<span class="token punctuation">[</span><span class="token punctuation">]</span> strs <span class="token operator">=</span> strStu<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//创建学生对象，获取数据</span>
+    Student stu <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//strs是第一行字符串以逗号分开的字符串数组，将值对象的传给stu的每    个属性</span>
+    stu<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span>Integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>strs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    stu<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span>strsp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    stu<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span>integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>strs<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//输出学生对象</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>stu<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//学生对象存入集合之中</span>
+    stus<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>stu<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+br<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h2 id="使用序列化技术，进行持久化"><a href="#使用序列化技术，进行持久化" class="headerlink" title="使用序列化技术，进行持久化"></a>使用序列化技术，进行持久化</h2><p>使用对象的序列化技术，来进行持久化。简化数据转换的操作，直接将对象的序列化之后存入文档，取出时进行反序列化可直接取出对象，而不用再进行繁琐的字符串操作</p>
 <ul>
-<li>查看所有分支的名称</li>
-</ul>
-<pre><code>git branch</code></pre><ul>
-<li>新建一个分支</li>
-</ul>
-<pre><code>git branch test01</code></pre><ul>
-<li>切换分支到test01</li>
-</ul>
-<pre><code>git checkout test01 </code></pre><p><strong>开发中的任务不能直接在master分支下进行</strong></p>
-<ul>
-<li><p>新建文件test02.txt</p>
-<ul>
-<li><p>分别执行add和commit</p>
-</li>
-<li><p>git status</p>
-</li>
+<li><strong>序列化：</strong>将对象转换成方便传输的流（输出）<ul>
+<li>使用ObjectOutputStream流中的writeObject（obj）的方法，将Obj对象序列化到流中</li>
 </ul>
 </li>
-<li><p>切换到master分支来看test01.txt文件是否存在</p>
+<li><strong>反序列化：</strong>将流转换成对应的对象（输入）<ul>
+<li>使用ObjectInputStream流中的readObject（）方法，将流中的对象反序列化为对象</li>
+</ul>
 </li>
-<li><p>补充</p>
-<p>删除本地分支</p>
-<pre class=" language-java"><code class="language-java">git branch <span class="token operator">-</span>d test01
-<span class="token comment" spellcheck="true">//删除test01分支</span></code></pre>
-<p>查看日志</p>
-<pre class=" language-java"><code class="language-java">git lg</code></pre>
-</li>
-</ul>
-<h2 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h2><ul>
-<li><p>切换到master</p>
-<pre><code>git checkout master</code></pre></li>
-<li><p>将test01合并到master</p>
-<pre><code>git merge test01</code></pre></li>
-</ul>
-<ul>
-<li><p>检查状态</p>
-<pre><code>git status</code></pre></li>
-</ul>
-<h2 id="分支冲突"><a href="#分支冲突" class="headerlink" title="分支冲突"></a>分支冲突</h2><p>当两个分支去操作同一个文件的位置，会造成分支的冲突</p>
-<p><img src="https://article-1300910484.cos.ap-shanghai.myqcloud.com/git%E5%85%A5%E9%97%A8/1.png" alt=""></p>
-<p>如何解决呢？ —–组长的任务</p>
-<ul>
-<li>master-&gt;hello.java-&gt;3行</li>
-<li>test01——–&gt;修改hello.java第三行</li>
-<li>test02———&gt;修改hello.java第三行</li>
-<li>test01-&gt;合并到-&gt;master-&gt;可以自动进行合并到</li>
-<li>test02-&gt;合并到-&gt;master-&gt;需要解决冲突<ul>
-<li>在master分支下打开hello.java-&gt;手动删除重复的部分，add，commit</li>
+<li><strong>注意：</strong>需要传输的对象对应的实体类必须实现序列化接口implements  Serializable<ul>
+<li>Serializable接口中没有任何属性和方法，仅仅是一个标志，标志着它的实现类可以被序列化而已</li>
 </ul>
 </li>
 </ul>
-<h1 id="本地上传"><a href="#本地上传" class="headerlink" title="本地上传"></a>本地上传</h1><ul>
-<li><p>在本地仓库中新建了一个文件first.txt</p>
-</li>
-<li><p>将本地仓库中的update提交到了远程仓库的master分支</p>
-<p>几乎不会用到这个操作的，本地的属于自己的分支应该提交到远程的从分支上，然后由组长在远程仓库中进行合并操作</p>
-<pre class=" language-java"><code class="language-java">git push origin master</code></pre>
-</li>
-<li><p>注意：空目录是不会推送的</p>
-</li>
-</ul>
-<h2 id="远程创建仓库分支"><a href="#远程创建仓库分支" class="headerlink" title="远程创建仓库分支"></a>远程创建仓库分支</h2><ul>
-<li><p>起点master  创建分支test01</p>
-</li>
-<li><p>本地创建分支并且切换到test01 - &gt; test01.txt</p>
-</li>
-<li><p>本地从分支推送到远程的从分支test01</p>
-<pre class=" language-java"><code class="language-java">git push origin test01</code></pre>
-</li>
-</ul>
-<h3 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h3><ul>
-<li><p>组长重新见一个仓库，然后再远程新建分支test01、test02、test03、test04、test05；</p>
-</li>
-<li><p>A组员在本地git clone仓库地址，进入本地仓库目录（.git隐藏目录所在的目录）；</p>
-</li>
-<li><p>A组员继续在本地分支test02-[master-test02]；</p>
-</li>
-<li><p>A组员继续在本地新建一个本地分支，文件名不要重复[文件名]</p>
-</li>
-<li><p>A组员推送本地test02分支到远程的分支test02</p>
-<p>注意：本地的分支如test02，一定要与远程仓库新建的分支名字保持一致</p>
-</li>
-<li><p>A组员的目的：让组长知道有新的提交，需要在码云网站（定位到自己的分支）</p>
-</li>
-</ul>
-<h2 id="拉取代码"><a href="#拉取代码" class="headerlink" title="拉取代码"></a>拉取代码</h2><p>组员本地的从分支需要拉取远程仓库的master分支的内容</p>
-<pre><code>git pull origin master</code></pre><p>1</p>
+<h3 id="序列化，将对象序列化，写入文件"><a href="#序列化，将对象序列化，写入文件" class="headerlink" title="序列化，将对象序列化，写入文件"></a>序列化，将对象序列化，写入文件</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//创建一个对象</span>
+Student stu <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Studet</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">"小马"</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//使用最基础的字节流创建序列化对象</span>
+ObjectOutputStream oos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectOutputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"路径"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//oos.writeObject(stu);</span>
+oos<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//此时文件中存储的内容任然是乱码，但是程序反序列化时可以识别这些数据，将这些数据完整的转换成原来的对象</span></code></pre>
+<h3 id="反序列化，文件中的内容取出来反序列化成对象"><a href="#反序列化，文件中的内容取出来反序列化成对象" class="headerlink" title="反序列化，文件中的内容取出来反序列化成对象"></a>反序列化，文件中的内容取出来反序列化成对象</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//创建读取的反序列化对象</span>
+ObjectInputStream ois <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectInputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"路径"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//readObject方法返回的是一个对象</span>
+Student getStu <span class="token operator">=</span> <span class="token punctuation">(</span>Student<span class="token punctuation">)</span>ois<span class="token punctuation">.</span><span class="token function">readObjet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//反序列化取出的可以取出对象，替代了繁琐的数据转换的操作，直接一步到位，读取出来就是一个对象</span></code></pre>
+<h3 id="序列化ID"><a href="#序列化ID" class="headerlink" title="序列化ID"></a>序列化ID</h3><p>serialVersionUID，作为唯一标识，一般实现是程序化接口时，会把这个作为常量加入到实体类中，用来判断这个类的对象没有被修改过，防止程序修改了对象数据造成文件和程序对象数据不一致</p>
+<h2 id="反序列化一次读取多个对象"><a href="#反序列化一次读取多个对象" class="headerlink" title="反序列化一次读取多个对象"></a>反序列化一次读取多个对象</h2><h3 id="1-创建自定义类"><a href="#1-创建自定义类" class="headerlink" title="1.创建自定义类"></a>1.创建自定义类</h3><p>创建自定义类，继承ObjectOutputStream类，重写里面的writeStreamHeader()方法</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
+ *  使用序列化写入对象时，如果是第一次写入文件（文件为空）
+ *  就用objectOutputStream写对象，会写入一个头标记
+ *  如果不是第一次，就用自定义类写对象，就不会写入头标记
+ */</span>
+<span class="token comment" spellcheck="true">//自定义一个类叫SubObjOutputStream，继承ObjectOutputStream</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SubObjOutputStream</span> <span class="token keyword">extends</span> <span class="token class-name">ObjectOutputStream</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//调用父类的构造方法</span>
+    <span class="token keyword">public</span> <span class="token function">SubObjOutputStream</span><span class="token punctuation">(</span>OutputStream out<span class="token punctuation">)</span> <span class="token keyword">throws</span> IoException<span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>out<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//重写父类中的写头标记的方法</span>
+    <span class="token comment" spellcheck="true">//每次调用writeObject写入对象时都会先调用此方法，安子文就按中写入头标记</span>
+    <span class="token comment" spellcheck="true">//但是一个文件中只需要一个头标记即可，文件你中有多个头标记会报异常</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">writeStreamHeader</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException<span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//注释掉，不让他写头标记</span>
+        <span class="token comment" spellcheck="true">//super.writeStreamHeader();        </span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="2-序列化对象"><a href="#2-序列化对象" class="headerlink" title="2.序列化对象"></a>2.序列化对象</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo01</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token keyword">throws</span> Exception<span class="token punctuation">{</span>
+        FileOutputStream fos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"test.txt"</span><span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//字节流，true代表可以追加写入</span>
+        <span class="token comment" spellcheck="true">//声明一个序列化对象</span>
+        ObjectOutputStream oos <span class="token operator">=</span> null<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//先获取路径文件的test.txt</span>
+        File f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"test.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//如果文件的长度小于1，代表这个文件是空的，第一次写入文件</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//使用ObjectOutputStream来序列化对象</span>
+            oos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectOutputStream</span><span class="token punctuation">(</span>fos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//如果里面有对象，就是用SubObjOutputStream来序列化对象</span>
+            <span class="token comment" spellcheck="true">//使用SubObjOutputStream序列化对象，不会待遇头标记</span>
+            oos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SubObjOutputStream</span><span class="token punctuation">(</span>fos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        User user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">"小希"</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//将对象存入</span>
+        oos<span class="token punctuation">.</span><span class="token function">writeObject</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//关流</span>
+        oos<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>    </code></pre>
+<h3 id="3-反序列化读取多个对象"><a href="#3-反序列化读取多个对象" class="headerlink" title="3.反序列化读取多个对象"></a>3.反序列化读取多个对象</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo02</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//反序列化</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token keyword">throws</span> Exception<span class="token punctuation">{</span>
+        ObjectInputStream ois <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectInputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token string">"路径"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//单条输出输出</span>
+        User u1 <span class="token operator">=</span> <span class="token punctuation">(</span>user<span class="token punctuation">)</span>ois<span class="token punctuation">.</span><span class="token function">readObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        USer u2 <span class="token operator">=</span> <span class="token punctuation">(</span>user<span class="token punctuation">)</span>ois<span class="token punctuation">.</span><span class="token function">readObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//取消多余头标记后可以正常输出两个对象</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>u1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>u2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">/**
+        *    反序列化时，如果只有两条数据反序列化，读取次数超过2次的话就会异常
+        *     如何依次输出说有的对象
+        *     要使用异常捕获，一旦读取完毕就给提示
+        */</span>
+        <span class="token keyword">try</span><span class="token punctuation">{</span>
+            Object obj <span class="token operator">=</span> null<span class="token punctuation">;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">(</span>obj<span class="token operator">=</span>ois<span class="token punctuation">.</span><span class="token function">readObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                User user <span class="token operator">=</span> <span class="token punctuation">(</span>User<span class="token punctuation">)</span>obj<span class="token punctuation">;</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>EOFException e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"读取完毕"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        ois<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
 
             </div>
             <hr/>
@@ -622,7 +651,7 @@ git add <span class="token punctuation">.</span></code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com" rel="external nofollow noreferrer">aLager</a>
+                    <a href="http://yoursite.com" rel="external nofollow noreferrer">软帝学院</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -632,7 +661,7 @@ git add <span class="token punctuation">.</span></code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2019/12/17/git-ru-men-bi-ji/">http://yoursite.com/2019/12/17/git-ru-men-bi-ji/</a>
+                    <a href="http://yoursite.com/2020/01/16/xu-lie-hua-yu-fan-xu-lie-hua/">http://yoursite.com/2020/01/16/xu-lie-hua-yu-fan-xu-lie-hua/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -645,7 +674,7 @@ git add <span class="token punctuation">.</span></code></pre>
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="http://yoursite.com" target="_blank">aLager</a>
+                    <a href="http://yoursite.com" target="_blank">软帝学院</a>
                     !
                 </span>
             </div>
@@ -670,12 +699,8 @@ git add <span class="token punctuation">.</span></code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/git/">
-                                    <span class="chip bg-color">git</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%A0%81%E4%BA%91/">
-                                    <span class="chip bg-color">码云</span>
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
                                 </a>
                             
                         </div>
@@ -1104,29 +1129,30 @@ git add <span class="token punctuation">.</span></code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/12/17/io-liu-er/">
+                <a href="/2020/01/16/xu-lie-hua-yu-fan-xu-lie-hua/">
                     <div class="card-image">
                         
                         
-                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/22.jpg" class="responsive-img" alt="IO流（二）">
+                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/8.jpg" class="responsive-img" alt="序列化与反序列化技术">
                         
-                        <span class="card-title">IO流（二）</span>
+                        <span class="card-title">序列化与反序列化技术</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            字节流复制文件，字符流的输入输出流，编码格式，字符缓冲流
+                            持久化技术
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1139,15 +1165,12 @@ git add <span class="token punctuation">.</span></code></pre>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/java/">
                         <span class="chip bg-color">java</span>
-                    </a>
-                    
-                    <a href="/tags/IO%E6%B5%81/">
-                        <span class="chip bg-color">IO流</span>
                     </a>
                     
                 </div>
@@ -1161,24 +1184,24 @@ git add <span class="token punctuation">.</span></code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/15/java-zhong-de-yi-chang/">
+                <a href="/2019/12/19/ri-qi-lei-string-lei/">
                     <div class="card-image">
                         
                         
-                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/7.jpg" class="responsive-img" alt="Java中的异常">
+                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/5.jpg" class="responsive-img" alt="日期类&String类">
                         
-                        <span class="card-title">Java中的异常</span>
+                        <span class="card-title">日期类&String类</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            java中常见的异常与处理方式
+                            核心API,了解这些API对日常的开发十分重要。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-19
                             </span>
                         <span class="publish-author">
                             
@@ -1197,6 +1220,14 @@ git add <span class="token punctuation">.</span></code></pre>
                     
                     <a href="/tags/java/">
                         <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/java%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">java基础</span>
+                    </a>
+                    
+                    <a href="/tags/java%E6%A0%B8%E5%BF%83API/">
+                        <span class="chip bg-color">java核心API</span>
                     </a>
                     
                 </div>
