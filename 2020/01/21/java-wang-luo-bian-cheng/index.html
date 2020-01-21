@@ -4,10 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="序列化与反序列化技术, Zyy&#39;s Blog">
-    <meta name="description" content="持久化技术将内存中的临时数据，保存到本地硬盘的技术；持久化之后，即使程序重启，也不会造成数据的丢失和重置
-使用常规的方法将数据存取在文件中将集合中的数据写入文件//创建student集合
-List&amp;lt;Student&gt; stus = ne">
+    <meta name="keywords" content="java的网络编程, Zyy&#39;s Blog">
+    <meta name="description" content="B/S与C/SB/S:
+B—–Brower浏览器，S—–Server服务器，使用浏览器作为客户端的应用，涉及到的技术有基础（Server+jsp），框架（SSM，SSH）
+C/S：
+C—–client客户端，S—–Server服务端，有客户">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +16,7 @@ List&amp;lt;Student&gt; stus = ne">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>序列化与反序列化技术 | Zyy&#39;s Blog</title>
+    <title>java的网络编程 | Zyy&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -305,13 +306,13 @@ List&amp;lt;Student&gt; stus = ne">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        序列化与反序列化技术
+                        java的网络编程
                     </div>
                 </div>
             </div>
@@ -459,7 +460,7 @@ List&amp;lt;Student&gt; stus = ne">
 	</div>
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-17
+                    2020-01-21
                 </div>
                 
 
@@ -468,7 +469,7 @@ List&amp;lt;Student&gt; stus = ne">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    800
                 </div>
                 
 	<div class="info-break-policy">
@@ -485,163 +486,108 @@ List&amp;lt;Student&gt; stus = ne">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="持久化技术"><a href="#持久化技术" class="headerlink" title="持久化技术"></a>持久化技术</h2><p>将内存中的临时数据，保存到本地硬盘的技术；持久化之后，即使程序重启，也不会造成数据的丢失和重置</p>
-<h2 id="使用常规的方法将数据存取在文件中"><a href="#使用常规的方法将数据存取在文件中" class="headerlink" title="使用常规的方法将数据存取在文件中"></a>使用常规的方法将数据存取在文件中</h2><h3 id="将集合中的数据写入文件"><a href="#将集合中的数据写入文件" class="headerlink" title="将集合中的数据写入文件"></a>将集合中的数据写入文件</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//创建student集合</span>
-List<span class="token operator">&lt;</span>Student<span class="token operator">></span> stus <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>Student<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-stus<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">"小马"</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-stus<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">"小菜"</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-stus<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">"小希"</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//将集合中的数据写入文件</span>
-BufferedWriter bw <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedWriter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">OutputStreamWriter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"路径"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//向文件中写数据</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span>Student stu <span class="token operator">:</span> stus<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    bw<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>stu<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    bw<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>stu<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    bw<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>stu<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    bw<span class="token punctuation">.</span><span class="token function">newLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    bw<span class="token punctuation">.</span><span class="token function">fulsh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">/*
-查看文件的时候，会发现出了字符串，其他都是乱码，可以使用+""转成字符串
-bw.write(stu.getId()+",");//转成字符串
-bw.write(stu.getName()+",");
-bw.write(stu.getAge()+"");
-*/</span>
-bw<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h3 id="将文件中的数据存入集合之中"><a href="#将文件中的数据存入集合之中" class="headerlink" title="将文件中的数据存入集合之中"></a>将文件中的数据存入集合之中</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//创建集合存放学生数据</span>
-List<span class="token operator">&lt;</span>Student<span class="token operator">></span> stus <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>Student<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//读取学生的数据</span>
-BufferedReader br <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedReader</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">InputStreamReader</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"路径"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//存放读出来的每条字符串的数据</span>
-String strStu<span class="token punctuation">;</span>
-<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">(</span>strStu<span class="token operator">=</span>br<span class="token punctuation">.</span><span class="token function">readLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//文本中每一行的字符串</span>
-    <span class="token comment" spellcheck="true">//1,小马,16</span>
-    <span class="token comment" spellcheck="true">//2,小菜,16</span>
-    <span class="token comment" spellcheck="true">//3,小希,18</span>
-    <span class="token comment" spellcheck="true">//将字符串按照“，”分割，每个字符串会被分成一个字符串数组</span>
-    String<span class="token punctuation">[</span><span class="token punctuation">]</span> strs <span class="token operator">=</span> strStu<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//创建学生对象，获取数据</span>
-    Student stu <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//strs是第一行字符串以逗号分开的字符串数组，将值对象的传给stu的每    个属性</span>
-    stu<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span>Integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>strs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    stu<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span>strsp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    stu<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span>integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>strs<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//输出学生对象</span>
-    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>stu<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//学生对象存入集合之中</span>
-    stus<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>stu<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-br<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h2 id="使用序列化技术，进行持久化"><a href="#使用序列化技术，进行持久化" class="headerlink" title="使用序列化技术，进行持久化"></a>使用序列化技术，进行持久化</h2><p>使用对象的序列化技术，来进行持久化。简化数据转换的操作，直接将对象的序列化之后存入文档，取出时进行反序列化可直接取出对象，而不用再进行繁琐的字符串操作</p>
+                <h2 id="B-S与C-S"><a href="#B-S与C-S" class="headerlink" title="B/S与C/S"></a>B/S与C/S</h2><p><strong>B/S:</strong></p>
+<p>B—–Brower浏览器，S—–Server服务器，使用浏览器作为客户端的应用，涉及到的技术有基础（Server+jsp），框架（SSM，SSH）</p>
+<p><strong>C/S：</strong></p>
+<p>C—–client客户端，S—–Server服务端，有客户端和服务器端的架构，使用到Socket网络编程完成</p>
+<h2 id="网络："><a href="#网络：" class="headerlink" title="网络："></a>网络：</h2><p>局域网和广域网</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>局域网</th>
+<th>广域网</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>优点</td>
+<td>规模小、易搭建、速度快、安全</td>
+<td>将不同的局域网利用设备连接起来，范围广</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>范围小</td>
+<td>搭建复杂、成本大</td>
+</tr>
+</tbody></table>
+<h2 id="网络协议："><a href="#网络协议：" class="headerlink" title="网络协议："></a>网络协议：</h2><p>TCP/UDP</p>
 <ul>
-<li><p>序列化：</p>
-<p>将对象转换成方便传输的流（输出）</p>
-<ul>
-<li>使用ObjectOutputStream流中的writeObject（obj）的方法，将Obj对象序列化到流中</li>
+<li><strong>TCP，传输控制协议</strong><ul>
+<li>他是面向连接的协议，数据传输安全性较高，先建立连接再传输数据，适合可靠性要求比较高的场合</li>
 </ul>
 </li>
-<li><p>反序列化：</p>
-<p>将流转换成对应的对象（输入）</p>
-<ul>
-<li>使用ObjectInputStream流中的readObject（）方法，将流中的对象反序列化为对象</li>
-</ul>
-</li>
-<li><p>注意：</p>
-<p>需要传输的对象对应的实体类必须实现序列化接口implements Serializable</p>
-<ul>
-<li>Serializable接口中没有任何属性和方法，仅仅是一个标志，标志着它的实现类可以被序列化而已</li>
+<li><strong>udp，用户数据包协议</strong><ul>
+<li>面向非连接的协议，不保证可靠数据的传输，只负责传输不负责确认适合于一些对数据准确性要求不高，速度要求比较高的场合</li>
 </ul>
 </li>
 </ul>
-<h3 id="序列化，将对象序列化，写入文件"><a href="#序列化，将对象序列化，写入文件" class="headerlink" title="序列化，将对象序列化，写入文件"></a>序列化，将对象序列化，写入文件</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//创建一个对象</span>
-Student stu <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Studet</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">"小马"</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//使用最基础的字节流创建序列化对象</span>
-ObjectOutputStream oos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectOutputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"路径"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//oos.writeObject(stu);</span>
-oos<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//此时文件中存储的内容任然是乱码，但是程序反序列化时可以识别这些数据，将这些数据完整的转换成原来的对象</span></code></pre>
-<h3 id="反序列化，文件中的内容取出来反序列化成对象"><a href="#反序列化，文件中的内容取出来反序列化成对象" class="headerlink" title="反序列化，文件中的内容取出来反序列化成对象"></a>反序列化，文件中的内容取出来反序列化成对象</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//创建读取的反序列化对象</span>
-ObjectInputStream ois <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectInputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"路径"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">//readObject方法返回的是一个对象</span>
-Student getStu <span class="token operator">=</span> <span class="token punctuation">(</span>Student<span class="token punctuation">)</span>ois<span class="token punctuation">.</span><span class="token function">readObjet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//反序列化取出的可以取出对象，替代了繁琐的数据转换的操作，直接一步到位，读取出来就是一个对象</span></code></pre>
-<h3 id="序列化ID"><a href="#序列化ID" class="headerlink" title="序列化ID"></a>序列化ID</h3><p>serialVersionUID，作为唯一标识，一般实现是程序化接口时，会把这个作为常量加入到实体类中，用来判断这个类的对象没有被修改过，防止程序修改了对象数据造成文件和程序对象数据不一致</p>
-<h2 id="反序列化一次读取多个对象"><a href="#反序列化一次读取多个对象" class="headerlink" title="反序列化一次读取多个对象"></a>反序列化一次读取多个对象</h2><h3 id="1-创建自定义类"><a href="#1-创建自定义类" class="headerlink" title="1.创建自定义类"></a>1.创建自定义类</h3><p>创建自定义类，继承ObjectOutputStream类，重写里面的writeStreamHeader()方法</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
- *  使用序列化写入对象时，如果是第一次写入文件（文件为空）
- *  就用objectOutputStream写对象，会写入一个头标记
- *  如果不是第一次，就用自定义类写对象，就不会写入头标记
- */</span>
-<span class="token comment" spellcheck="true">//自定义一个类叫SubObjOutputStream，继承ObjectOutputStream</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SubObjOutputStream</span> <span class="token keyword">extends</span> <span class="token class-name">ObjectOutputStream</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//调用父类的构造方法</span>
-    <span class="token keyword">public</span> <span class="token function">SubObjOutputStream</span><span class="token punctuation">(</span>OutputStream out<span class="token punctuation">)</span> <span class="token keyword">throws</span> IoException<span class="token punctuation">{</span>
-        <span class="token keyword">super</span><span class="token punctuation">(</span>out<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">//重写父类中的写头标记的方法</span>
-    <span class="token comment" spellcheck="true">//每次调用writeObject写入对象时都会先调用此方法，安子文就按中写入头标记</span>
-    <span class="token comment" spellcheck="true">//但是一个文件中只需要一个头标记即可，文件你中有多个头标记会报异常</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">writeStreamHeader</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException<span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//注释掉，不让他写头标记</span>
-        <span class="token comment" spellcheck="true">//super.writeStreamHeader();        </span>
-    <span class="token punctuation">}</span>
+<p><img src="https://article-1300910484.cos.ap-shanghai.myqcloud.com/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/1.png" alt="image-20200121200550526"></p>
+<h2 id="端口port："><a href="#端口port：" class="headerlink" title="端口port："></a>端口port：</h2><p>设备与外界通信交流的出口，所有的数据都通过该出口与其他计算机或者设备相连接</p>
+<ul>
+<li><p><strong>端口的范围 ：</strong> 0-65535（char的范围）</p>
+</li>
+<li><p><strong>port：</strong>提供给客户端访问的端口号</p>
+</li>
+<li><p>1-1023之间的端口数尽量不要使用，大部分是系统端口</p>
+</li>
+</ul>
+<h2 id="套接字Socket："><a href="#套接字Socket：" class="headerlink" title="套接字Socket："></a>套接字Socket：</h2><p>提供给程序可以对外进行连接的接口，可以让外界连接到成序</p>
+<h2 id="IP地址："><a href="#IP地址：" class="headerlink" title="IP地址："></a>IP地址：</h2><p>每台计算的网络地址，相当于计算机的识别码</p>
+<h2 id="InetAddress"><a href="#InetAddress" class="headerlink" title="InetAddress"></a>InetAddress</h2><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//实例化InetAddress对象，用来获取本地主机地址对象</span>
+<span class="token keyword">try</span><span class="token punctuation">{</span>
+    InetAddress host <span class="token operator">=</span> InetAddress<span class="token punctuation">.</span><span class="token function">getLocationHost</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//获取本机的主机名</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"我的主机名"</span><span class="token operator">+</span>host<span class="token punctuation">.</span><span class="token function">getHostName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//获取本机的IP地址</span>
+    System。out。<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"我的IP"</span><span class="token operator">+</span>host<span class="token punctuation">.</span><span class="token function">getHostAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//获取百度的主机对象</span>
+    InetAddress bdHost <span class="token operator">=</span> InetAddress<span class="token punctuation">.</span><span class="token function">getByName</span><span class="token punctuation">(</span><span class="token string">"www.baidu.com"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"百度主机对象："</span><span class="token operator">+</span>bdHost<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//获取百度所有的IP</span>
+    <span class="token comment" spellcheck="true">//getAllByName返回值为数组</span>
+    InetAddress<span class="token punctuation">[</span><span class="token punctuation">]</span> baidu <span class="token operator">=</span> InetAddress<span class="token punctuation">.</span><span class="token function">getAllByName</span><span class="token punctuation">(</span><span class="token string">"www.baidu.com"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//遍历主机对象获取主机地址</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>InetAddress id <span class="token operator">:</span> baidu<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>id<span class="token punctuation">.</span><span class="token function">getHostAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>   
+<span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>UnKnowHostException e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-<h3 id="2-序列化对象"><a href="#2-序列化对象" class="headerlink" title="2.序列化对象"></a>2.序列化对象</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo01</span><span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token keyword">throws</span> Exception<span class="token punctuation">{</span>
-        FileOutputStream fos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"test.txt"</span><span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//字节流，true代表可以追加写入</span>
-        <span class="token comment" spellcheck="true">//声明一个序列化对象</span>
-        ObjectOutputStream oos <span class="token operator">=</span> null<span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//先获取路径文件的test.txt</span>
-        File f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"test.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//如果文件的长度小于1，代表这个文件是空的，第一次写入文件</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//使用ObjectOutputStream来序列化对象</span>
-            oos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectOutputStream</span><span class="token punctuation">(</span>fos<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//如果里面有对象，就是用SubObjOutputStream来序列化对象</span>
-            <span class="token comment" spellcheck="true">//使用SubObjOutputStream序列化对象，不会待遇头标记</span>
-            oos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SubObjOutputStream</span><span class="token punctuation">(</span>fos<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        User user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">"小希"</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//将对象存入</span>
-        oos<span class="token punctuation">.</span><span class="token function">writeObject</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//关流</span>
-        oos<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>    </code></pre>
-<h3 id="3-反序列化读取多个对象"><a href="#3-反序列化读取多个对象" class="headerlink" title="3.反序列化读取多个对象"></a>3.反序列化读取多个对象</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo02</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//反序列化</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token keyword">throws</span> Exception<span class="token punctuation">{</span>
-        ObjectInputStream ois <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectInputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token string">"路径"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">//单条输出输出</span>
-        User u1 <span class="token operator">=</span> <span class="token punctuation">(</span>user<span class="token punctuation">)</span>ois<span class="token punctuation">.</span><span class="token function">readObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        USer u2 <span class="token operator">=</span> <span class="token punctuation">(</span>user<span class="token punctuation">)</span>ois<span class="token punctuation">.</span><span class="token function">readObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//取消多余头标记后可以正常输出两个对象</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>u1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>u2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">/**
-        *    反序列化时，如果只有两条数据反序列化，读取次数超过2次的话就会异常
-        *     如何依次输出说有的对象
-        *     要使用异常捕获，一旦读取完毕就给提示
-        */</span>
+<p><img src="https://article-1300910484.cos.ap-shanghai.myqcloud.com/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/2.png" alt=""></p>
+<h2 id="利用Socket技术创建服务器"><a href="#利用Socket技术创建服务器" class="headerlink" title="利用Socket技术创建服务器"></a>利用Socket技术创建服务器</h2><h3 id="服务器："><a href="#服务器：" class="headerlink" title="服务器："></a>服务器：</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SocketServer</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
         <span class="token keyword">try</span><span class="token punctuation">{</span>
-            Object obj <span class="token operator">=</span> null<span class="token punctuation">;</span>
-            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">(</span>obj<span class="token operator">=</span>ois<span class="token punctuation">.</span><span class="token function">readObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                User user <span class="token operator">=</span> <span class="token punctuation">(</span>User<span class="token punctuation">)</span>obj<span class="token punctuation">;</span>
-                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>EOFException e<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"读取完毕"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">//创建服务器</span>
+            <span class="token comment" spellcheck="true">//如果多次打开同一个端口号的服务器，会出现端口号被占用的错误</span>
+            ServerSocket server <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ServerScoket</span><span class="token punctuation">(</span><span class="token number">8848</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"服务器启动成功，等待用户接入"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//等待客户端连接</span>
+            <span class="token comment" spellcheck="true">//获取连接进来的客户端，返回值为Socket对象</span>
+            <span class="token comment" spellcheck="true">//accept会一直等待客户端连接，调用accept方法程序会进入挂起状态，不会再乡下执行代码，直到有客户端连接进来才会继续向下执行</span>
+            <span class="token comment" spellcheck="true">//有客户端进来，会将客户端都返回给调用者</span>
+            Socket client <span class="token operator">=</span> server<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//获取接入的客户端地址</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"连接的客户端IP:"</span><span class="token operator">+</span>client<span class="token punctuation">.</span><span class="token function">getInetAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>IOException e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        ois<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="客户端："><a href="#客户端：" class="headerlink" title="客户端："></a>客户端：</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SocketClient</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//创建客户端的对象，并连接服务器</span>
+        <span class="token comment" spellcheck="true">//两个参数：服务器IP地址或者location，port端口</span>
+        <span class="token comment" spellcheck="true">//端口号必须和服务器提供的端口号保持一致</span>
+        <span class="token keyword">try</span><span class="token punctuation">{</span>
+            Socket client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Socket</span><span class="token punctuation">(</span><span class="token string">"localhost"</span><span class="token punctuation">,</span><span class="token number">8848</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"连接成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>Exception e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span></code></pre>
+<p><img src="https://article-1300910484.cos.ap-shanghai.myqcloud.com/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/3.png" alt=""></p>
 
             </div>
             <hr/>
@@ -667,7 +613,7 @@ Student getStu <span class="token operator">=</span> <span class="token punctuat
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/01/17/xu-lie-hua-yu-fan-xu-lie-hua-ji-zhu/">http://yoursite.com/2020/01/17/xu-lie-hua-yu-fan-xu-lie-hua-ji-zhu/</a>
+                    <a href="http://yoursite.com/2020/01/21/java-wang-luo-bian-cheng/">http://yoursite.com/2020/01/21/java-wang-luo-bian-cheng/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1135,9 +1081,60 @@ Student getStu <span class="token operator">=</span> <span class="token punctuat
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/01/21/java-wang-luo-bian-cheng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/6.jpg" class="responsive-img" alt="java的网络编程">
+                        
+                        <span class="card-title">java的网络编程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            ServerSocket、Socket、C/S
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%98%B6%E6%AE%B5%E5%B0%8F%E7%BB%93/" class="post-category">
+                                    阶段小结
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/01/17/xian-cheng/">
                     <div class="card-image">
@@ -1159,57 +1156,8 @@ Student getStu <span class="token operator">=</span> <span class="token punctuat
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-17
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E9%98%B6%E6%AE%B5%E5%B0%8F%E7%BB%93/" class="post-category">
-                                    阶段小结
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/12/19/ri-qi-lei-string-lei/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/5.jpg" class="responsive-img" alt="日期类&String类">
-                        
-                        <span class="card-title">日期类&String类</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            核心API,了解这些API对日常的开发十分重要。
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-17
                             </span>
                         <span class="publish-author">
                             
@@ -1228,14 +1176,6 @@ Student getStu <span class="token operator">=</span> <span class="token punctuat
                     
                     <a href="/tags/java/">
                         <span class="chip bg-color">java</span>
-                    </a>
-                    
-                    <a href="/tags/java%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">java基础</span>
-                    </a>
-                    
-                    <a href="/tags/java%E6%A0%B8%E5%BF%83API/">
-                        <span class="chip bg-color">java核心API</span>
                     </a>
                     
                 </div>

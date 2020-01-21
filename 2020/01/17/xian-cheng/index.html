@@ -4,10 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="序列化与反序列化技术, Zyy&#39;s Blog">
-    <meta name="description" content="持久化技术将内存中的临时数据，保存到本地硬盘的技术；持久化之后，即使程序重启，也不会造成数据的丢失和重置
-使用常规的方法将数据存取在文件中将集合中的数据写入文件//创建student集合
-List&amp;lt;Student&gt; stus = ne">
+    <meta name="keywords" content="线程, Zyy&#39;s Blog">
+    <meta name="description" content="线程概念
+程序：一个完整的可以运行的，指令+数据的byte序列，比如QQ.exe
+进程：正在运行的程序，是程序动态运行的过程（在内存中运行）
+线程：用来完成某个特定的任务目标，比如：收发信息，播放音乐，下载
+并发：多个线程同时运行就叫线程并">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +17,7 @@ List&amp;lt;Student&gt; stus = ne">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>序列化与反序列化技术 | Zyy&#39;s Blog</title>
+    <title>线程 | Zyy&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -305,13 +307,13 @@ List&amp;lt;Student&gt; stus = ne">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        序列化与反序列化技术
+                        线程
                     </div>
                 </div>
             </div>
@@ -468,7 +470,7 @@ List&amp;lt;Student&gt; stus = ne">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.7k
                 </div>
                 
 	<div class="info-break-policy">
@@ -485,162 +487,204 @@ List&amp;lt;Student&gt; stus = ne">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="持久化技术"><a href="#持久化技术" class="headerlink" title="持久化技术"></a>持久化技术</h2><p>将内存中的临时数据，保存到本地硬盘的技术；持久化之后，即使程序重启，也不会造成数据的丢失和重置</p>
-<h2 id="使用常规的方法将数据存取在文件中"><a href="#使用常规的方法将数据存取在文件中" class="headerlink" title="使用常规的方法将数据存取在文件中"></a>使用常规的方法将数据存取在文件中</h2><h3 id="将集合中的数据写入文件"><a href="#将集合中的数据写入文件" class="headerlink" title="将集合中的数据写入文件"></a>将集合中的数据写入文件</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//创建student集合</span>
-List<span class="token operator">&lt;</span>Student<span class="token operator">></span> stus <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>Student<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-stus<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">"小马"</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-stus<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">"小菜"</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-stus<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">"小希"</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//将集合中的数据写入文件</span>
-BufferedWriter bw <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedWriter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">OutputStreamWriter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"路径"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//向文件中写数据</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span>Student stu <span class="token operator">:</span> stus<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    bw<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>stu<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    bw<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>stu<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    bw<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>stu<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    bw<span class="token punctuation">.</span><span class="token function">newLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    bw<span class="token punctuation">.</span><span class="token function">fulsh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">/*
-查看文件的时候，会发现出了字符串，其他都是乱码，可以使用+""转成字符串
-bw.write(stu.getId()+",");//转成字符串
-bw.write(stu.getName()+",");
-bw.write(stu.getAge()+"");
-*/</span>
-bw<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h3 id="将文件中的数据存入集合之中"><a href="#将文件中的数据存入集合之中" class="headerlink" title="将文件中的数据存入集合之中"></a>将文件中的数据存入集合之中</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//创建集合存放学生数据</span>
-List<span class="token operator">&lt;</span>Student<span class="token operator">></span> stus <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>Student<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//读取学生的数据</span>
-BufferedReader br <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedReader</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">InputStreamReader</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"路径"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//存放读出来的每条字符串的数据</span>
-String strStu<span class="token punctuation">;</span>
-<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">(</span>strStu<span class="token operator">=</span>br<span class="token punctuation">.</span><span class="token function">readLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//文本中每一行的字符串</span>
-    <span class="token comment" spellcheck="true">//1,小马,16</span>
-    <span class="token comment" spellcheck="true">//2,小菜,16</span>
-    <span class="token comment" spellcheck="true">//3,小希,18</span>
-    <span class="token comment" spellcheck="true">//将字符串按照“，”分割，每个字符串会被分成一个字符串数组</span>
-    String<span class="token punctuation">[</span><span class="token punctuation">]</span> strs <span class="token operator">=</span> strStu<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//创建学生对象，获取数据</span>
-    Student stu <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//strs是第一行字符串以逗号分开的字符串数组，将值对象的传给stu的每    个属性</span>
-    stu<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span>Integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>strs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    stu<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span>strsp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    stu<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span>integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>strs<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//输出学生对象</span>
-    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>stu<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//学生对象存入集合之中</span>
-    stus<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>stu<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-br<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h2 id="使用序列化技术，进行持久化"><a href="#使用序列化技术，进行持久化" class="headerlink" title="使用序列化技术，进行持久化"></a>使用序列化技术，进行持久化</h2><p>使用对象的序列化技术，来进行持久化。简化数据转换的操作，直接将对象的序列化之后存入文档，取出时进行反序列化可直接取出对象，而不用再进行繁琐的字符串操作</p>
-<ul>
-<li><p>序列化：</p>
-<p>将对象转换成方便传输的流（输出）</p>
-<ul>
-<li>使用ObjectOutputStream流中的writeObject（obj）的方法，将Obj对象序列化到流中</li>
+                <h2 id="线程概念"><a href="#线程概念" class="headerlink" title="线程概念"></a>线程概念</h2><ul>
+<li><strong>程序：</strong>一个完整的可以运行的，指令+数据的byte序列，比如QQ.exe</li>
+<li><strong>进程：</strong>正在运行的程序，是程序动态运行的过程（在内存中运行）</li>
+<li><strong>线程：</strong>用来完成某个特定的任务目标，比如：收发信息，播放音乐，下载</li>
+<li><strong>并发：</strong>多个线程同时运行就叫线程并发</li>
 </ul>
-</li>
-<li><p>反序列化：</p>
-<p>将流转换成对应的对象（输入）</p>
+<p>操作系统在运行时，会执行多个任务，每个任务都是一个程序，每个运行的程序对应一个进程，一个进程中可能包含多个线程</p>
 <ul>
-<li>使用ObjectInputStream流中的readObject（）方法，将流中的对象反序列化为对象</li>
+<li>进程是资源分配的最小单位，线程是最小的执行单位</li>
+<li>一个进程可以有多个线程</li>
+<li>线程共享进程的资源</li>
 </ul>
-</li>
-<li><p>注意：</p>
-<p>需要传输的对象对应的实体类必须实现序列化接口implements Serializable</p>
+<h2 id="创建线程的三种方法："><a href="#创建线程的三种方法：" class="headerlink" title="创建线程的三种方法："></a>创建线程的三种方法：</h2><h3 id="1-继承Thread类"><a href="#1-继承Thread类" class="headerlink" title="1.继承Thread类"></a>1.继承Thread类</h3><p>Thread是Java中表示线程的类，里面包含了一个线程运行的方法ru()</p>
+<p>使用Thread创建并启动线程：</p>
 <ul>
-<li>Serializable接口中没有任何属性和方法，仅仅是一个标志，标志着它的实现类可以被序列化而已</li>
+<li>创建类继承Thread</li>
+<li>创建线程的实体对象</li>
+<li>调用线程实例对象的start()方法启动线程</li>
 </ul>
-</li>
-</ul>
-<h3 id="序列化，将对象序列化，写入文件"><a href="#序列化，将对象序列化，写入文件" class="headerlink" title="序列化，将对象序列化，写入文件"></a>序列化，将对象序列化，写入文件</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//创建一个对象</span>
-Student stu <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Studet</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">"小马"</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//使用最基础的字节流创建序列化对象</span>
-ObjectOutputStream oos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectOutputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"路径"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//oos.writeObject(stu);</span>
-oos<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//此时文件中存储的内容任然是乱码，但是程序反序列化时可以识别这些数据，将这些数据完整的转换成原来的对象</span></code></pre>
-<h3 id="反序列化，文件中的内容取出来反序列化成对象"><a href="#反序列化，文件中的内容取出来反序列化成对象" class="headerlink" title="反序列化，文件中的内容取出来反序列化成对象"></a>反序列化，文件中的内容取出来反序列化成对象</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//创建读取的反序列化对象</span>
-ObjectInputStream ois <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectInputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"路径"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">//readObject方法返回的是一个对象</span>
-Student getStu <span class="token operator">=</span> <span class="token punctuation">(</span>Student<span class="token punctuation">)</span>ois<span class="token punctuation">.</span><span class="token function">readObjet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//反序列化取出的可以取出对象，替代了繁琐的数据转换的操作，直接一步到位，读取出来就是一个对象</span></code></pre>
-<h3 id="序列化ID"><a href="#序列化ID" class="headerlink" title="序列化ID"></a>序列化ID</h3><p>serialVersionUID，作为唯一标识，一般实现是程序化接口时，会把这个作为常量加入到实体类中，用来判断这个类的对象没有被修改过，防止程序修改了对象数据造成文件和程序对象数据不一致</p>
-<h2 id="反序列化一次读取多个对象"><a href="#反序列化一次读取多个对象" class="headerlink" title="反序列化一次读取多个对象"></a>反序列化一次读取多个对象</h2><h3 id="1-创建自定义类"><a href="#1-创建自定义类" class="headerlink" title="1.创建自定义类"></a>1.创建自定义类</h3><p>创建自定义类，继承ObjectOutputStream类，重写里面的writeStreamHeader()方法</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
- *  使用序列化写入对象时，如果是第一次写入文件（文件为空）
- *  就用objectOutputStream写对象，会写入一个头标记
- *  如果不是第一次，就用自定义类写对象，就不会写入头标记
- */</span>
-<span class="token comment" spellcheck="true">//自定义一个类叫SubObjOutputStream，继承ObjectOutputStream</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SubObjOutputStream</span> <span class="token keyword">extends</span> <span class="token class-name">ObjectOutputStream</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//调用父类的构造方法</span>
-    <span class="token keyword">public</span> <span class="token function">SubObjOutputStream</span><span class="token punctuation">(</span>OutputStream out<span class="token punctuation">)</span> <span class="token keyword">throws</span> IoException<span class="token punctuation">{</span>
-        <span class="token keyword">super</span><span class="token punctuation">(</span>out<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">//重写父类中的写头标记的方法</span>
-    <span class="token comment" spellcheck="true">//每次调用writeObject写入对象时都会先调用此方法，安子文就按中写入头标记</span>
-    <span class="token comment" spellcheck="true">//但是一个文件中只需要一个头标记即可，文件你中有多个头标记会报异常</span>
+<p><strong>线程类</strong></p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//1.继承Thread</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThreadDemo</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span><span class="token punctuation">{</span>
+     <span class="token comment" spellcheck="true">//重写Run方法</span>
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">writeStreamHeader</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException<span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//注释掉，不让他写头标记</span>
-        <span class="token comment" spellcheck="true">//super.writeStreamHeader();        </span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<h3 id="2-序列化对象"><a href="#2-序列化对象" class="headerlink" title="2.序列化对象"></a>2.序列化对象</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo01</span><span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token keyword">throws</span> Exception<span class="token punctuation">{</span>
-        FileOutputStream fos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"test.txt"</span><span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//字节流，true代表可以追加写入</span>
-        <span class="token comment" spellcheck="true">//声明一个序列化对象</span>
-        ObjectOutputStream oos <span class="token operator">=</span> null<span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//先获取路径文件的test.txt</span>
-        File f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"test.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//如果文件的长度小于1，代表这个文件是空的，第一次写入文件</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//使用ObjectOutputStream来序列化对象</span>
-            oos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectOutputStream</span><span class="token punctuation">(</span>fos<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//如果里面有对象，就是用SubObjOutputStream来序列化对象</span>
-            <span class="token comment" spellcheck="true">//使用SubObjOutputStream序列化对象，不会待遇头标记</span>
-            oos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SubObjOutputStream</span><span class="token punctuation">(</span>fos<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        User user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">"小希"</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//将对象存入</span>
-        oos<span class="token punctuation">.</span><span class="token function">writeObject</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//关流</span>
-        oos<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>    </code></pre>
-<h3 id="3-反序列化读取多个对象"><a href="#3-反序列化读取多个对象" class="headerlink" title="3.反序列化读取多个对象"></a>3.反序列化读取多个对象</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo02</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//反序列化</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token keyword">throws</span> Exception<span class="token punctuation">{</span>
-        ObjectInputStream ois <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectInputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token string">"路径"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">//单条输出输出</span>
-        User u1 <span class="token operator">=</span> <span class="token punctuation">(</span>user<span class="token punctuation">)</span>ois<span class="token punctuation">.</span><span class="token function">readObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        USer u2 <span class="token operator">=</span> <span class="token punctuation">(</span>user<span class="token punctuation">)</span>ois<span class="token punctuation">.</span><span class="token function">readObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//取消多余头标记后可以正常输出两个对象</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>u1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>u2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">/**
-        *    反序列化时，如果只有两条数据反序列化，读取次数超过2次的话就会异常
-        *     如何依次输出说有的对象
-        *     要使用异常捕获，一旦读取完毕就给提示
-        */</span>
-        <span class="token keyword">try</span><span class="token punctuation">{</span>
-            Object obj <span class="token operator">=</span> null<span class="token punctuation">;</span>
-            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">(</span>obj<span class="token operator">=</span>ois<span class="token punctuation">.</span><span class="token function">readObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                User user <span class="token operator">=</span> <span class="token punctuation">(</span>User<span class="token punctuation">)</span>obj<span class="token punctuation">;</span>
-                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>EOFException e<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"读取完毕"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"开始执行run方法"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token comment" spellcheck="true">//线程休眠</span>
+            <span class="token keyword">try</span><span class="token punctuation">{</span>
+                Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//1000毫秒</span>
+            <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>InterruptedException e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                e<span class="token punctuation">.</span><span class="token function">printStackTrance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
-        ois<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-
+<span class="token punctuation">}</span></code></pre>
+<p><strong>测试线程</strong></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//3.创建线程实例对象</span>
+        ThreadDemo td <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadDemo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//使用start方法启动线程，启动线程后，会自动调用run方法</span>
+        td<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>注意：</strong></p>
+<ul>
+<li><strong>启动线程调用start()方法</strong></li>
+<li><strong>线程启动后会自动调用run()方法</strong></li>
+<li><strong>需要线程完成某件事情，将对应的代码添加到run()方法中</strong></li>
+</ul>
+<h3 id="2-实现Runable接口（推荐）"><a href="#2-实现Runable接口（推荐）" class="headerlink" title="2.实现Runable接口（推荐）"></a>2.实现Runable接口（推荐）</h3><p>步骤：</p>
+<ul>
+<li>创建类实现Runable接口</li>
+<li>实现run方法</li>
+<li>创建runable接口的实现类对象</li>
+<li>使用thread类创建对象，并将第三步创建对象作为参数传递到构造方法中</li>
+<li>调用thread类的对象的start方法启动线程</li>
+</ul>
+<p><strong>线程类</strong></p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//1.创建类实现Runnable接口</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RunnableDemo</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//2.重写run方法</span>
+    <span class="token annotation punctuation">@override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Runnable线程启动了"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//3.创建Runnable实现类的对象</span>
+    RunnableDemo rd <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RunnableDemo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//4.使用runnable实现类对象创建thread对象</span>
+    Thread t <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>rd<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//5.使用thread类对象启动线程</span>
+    t<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="3-使用匿名内部类"><a href="#3-使用匿名内部类" class="headerlink" title="3.使用匿名内部类"></a>3.使用匿名内部类</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//直接在需要使用线程的类内部创建匿名内部类</span>
+Thread t <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"匿名内部类实现线程"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+t<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h2 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h2><p>线程的生命周期有五个状态：</p>
+<ul>
+<li><strong>新建（new）</strong>：使用new关键字创建线程实例后，该线程就进入新建状态，此时线程还不会执行</li>
+<li><strong>就绪（Runnable）</strong>：调用了Start（）方法，进入就绪状态，此时线程可以执行，此时等待CPU分配执行资源（时间片）后即可运行</li>
+<li><strong>运行（Running）</strong>：当CPU为该线程分配了资源之后，该线程的run（）方法开始执行，此时线程处于运行状态</li>
+<li><strong>阻塞（Block）</strong>：线程休眠（sleep），等待（wait）或者调用了阻塞IO方法（比如Scanner）时，主动放弃了CPU资源，会进入阻塞状态，线程运行处于停止状态，此时就是阻塞状态</li>
+<li><strong>死亡（Dead）</strong>：当线程run方法执行完毕后，线程就处于死亡状态</li>
+</ul>
+<p><img src="https://article-1300910484.cos.ap-shanghai.myqcloud.com/%E7%BA%BF%E7%A8%8B/image-20200121173535665.png" alt=""></p>
+<p><em>注意：</em></p>
+<ul>
+<li><em>当线程创建后不会立即执行，需要调用start（）方法，此时线程处理就绪</em></li>
+<li><em>当线程就绪后，需要分配CPU分配了资源才会执行</em></li>
+<li><em>当线程阻塞时，会让出战友CPU资源，当阻塞结束后，线程会计入到就绪状态，重新等待CPU分配资源，而不是进入运行状态</em></li>
+</ul>
+<h2 id="线程的加入：Thread-join"><a href="#线程的加入：Thread-join" class="headerlink" title="线程的加入：Thread.join()"></a>线程的加入：Thread.join()</h2><p>代表等待该线程运行终止，原线程才继续运行</p>
+<p>该方法可以加参数，<code>线程对象.join(毫秒数)</code>，代表最多等待多少毫秒</p>
+<h2 id="线程的中断：interrupt（），让线程中断执行"><a href="#线程的中断：interrupt（），让线程中断执行" class="headerlink" title="线程的中断：interrupt（），让线程中断执行"></a>线程的中断：interrupt（），让线程中断执行</h2><h2 id="守护线程：setDaemon（true）"><a href="#守护线程：setDaemon（true）" class="headerlink" title="守护线程：setDaemon（true）"></a>守护线程：setDaemon（true）</h2><p>将线程设置为守护线程</p>
+<p>线程分为<strong>前台线程</strong>与<strong>守护线程（后台线程）</strong></p>
+<p>如果前台线程全部都执行完毕，后台线程无论是否结束都会关闭掉</p>
+<h2 id="设置线程优先级"><a href="#设置线程优先级" class="headerlink" title="设置线程优先级"></a>设置线程优先级</h2><p><code>t.setPriorty(1~10);</code></p>
+<p>优先级 1-10</p>
+<p>默认优先级 5 </p>
+<p>优先级高，获得CPU资源的几率就会高，但是也不是一定会最先抢到资源</p>
+<p>优先级一样的话，就会按照先来的顺序执行</p>
+<h2 id="线程的唤醒与暂停"><a href="#线程的唤醒与暂停" class="headerlink" title="线程的唤醒与暂停"></a>线程的唤醒与暂停</h2><p>使用线程的wait（）方法可以让线程暂停，处于停止运行状态；</p>
+<p>使用线程的notify（）方法可以唤醒线程，让线程继续运行起来</p>
+<h2 id="多线程的异步与同步"><a href="#多线程的异步与同步" class="headerlink" title="多线程的异步与同步"></a>多线程的异步与同步</h2><p>多线程操作同一个数据的时候，可能会出现线程安全问题</p>
+<ul>
+<li>同步：安全性高，效率低</li>
+<li>异步：安全性低，效率比同步高，会有数据安全性问题</li>
+</ul>
+<p><strong>解决异步安全性问题，可以给线程加锁，让代码同步</strong></p>
+<p><strong>线程同步机制：</strong>为了避免多线程的安全问题，需要在公共访问的内容上加锁，加锁之后，当一个线程执行该内容时，其他线程无法执行该内容；只有当线程将次部分的内容执行完毕之后，其他线程才可以执行</p>
+<h3 id="加锁流程："><a href="#加锁流程：" class="headerlink" title="加锁流程："></a><strong>加锁流程：</strong></h3><ul>
+<li>找到多线程公共执行内容</li>
+<li>在此内容上加锁（synchronized）</li>
+</ul>
+<p>synchronized可以加在方法上：在返回值前面加关键词即可</p>
+<p>加在代码块上时：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">synchronized</span>（<span class="token keyword">this</span>）<span class="token punctuation">{</span>
+    代码块
+<span class="token punctuation">}</span></code></pre>
+<p>注意：加锁之后，被加锁的代码就变成可同步代码，会影响执行的效率，应该尽量减少锁的范围</p>
+<p>示例：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThreadDemo</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token function">threadName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">synchronized</span> <span class="token keyword">void</span> <span class="token function">threadName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>num<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>                            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"抢走了第"</span><span class="token operator">+</span>num<span class="token operator">+</span><span class="token string">"张票"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span><span class="token punctuation">{</span>
+            Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>InterruptedException e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> ststic <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    ThreadDemo t <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadDemo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Thread t1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span><span class="token string">"淘宝"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Thread t2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span><span class="token string">"12306"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Thread t3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span><span class="token string">"携程"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    t1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    t2<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    t3<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p>死锁的问题：</p>
+<p>两个线程功能要完全执行，都同时需要两个资源（a，b）</p>
+<p>线程1抢到资源a需要等待资源b</p>
+<p>线程2抢到资源b需要等待资源a</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThreadDemo</span><span class="token punctuation">{</span>
+    <span class="token keyword">static</span> Object objA <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">static</span> Object objB <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        DeadRunnable td1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DeadRunnbale</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        DeadRunnable td2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DeadRunnbale</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Thread t1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>td1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Thread t2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>td2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        t1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        t2<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">DeadRunnable</span> implement Runnable<span class="token punctuation">{</span>
+    <span class="token keyword">boolean</span> flag<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token function">DeadRunnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token function">DeadRunnable</span><span class="token punctuation">(</span><span class="token keyword">boolean</span> flag<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>flag <span class="token operator">=</span> flag<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">synchronized</span><span class="token punctuation">(</span>ThreadDemo<span class="token punctuation">.</span>objA<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"A获取到资源objA"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">synchronized</span><span class="token punctuation">(</span>ThreadDemo<span class="token punctuation">.</span>objB<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"A获取到资源objB"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token keyword">synchronized</span><span class="token punctuation">(</span>ThreadDemo<span class="token punctuation">.</span>objA<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"B获取到资源objB"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">synchronized</span><span class="token punctuation">(</span>ThreadDemo<span class="token punctuation">.</span>objB<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"B获取到资源objA"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>  
 <span class="token punctuation">}</span></code></pre>
 
             </div>
@@ -667,7 +711,7 @@ Student getStu <span class="token operator">=</span> <span class="token punctuat
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/01/17/xu-lie-hua-yu-fan-xu-lie-hua-ji-zhu/">http://yoursite.com/2020/01/17/xu-lie-hua-yu-fan-xu-lie-hua-ji-zhu/</a>
+                    <a href="http://yoursite.com/2020/01/17/xian-cheng/">http://yoursite.com/2020/01/17/xian-cheng/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1139,28 +1183,24 @@ Student getStu <span class="token operator">=</span> <span class="token punctuat
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/17/xian-cheng/">
+                <a href="/2020/01/21/java-wang-luo-bian-cheng/">
                     <div class="card-image">
                         
                         
-                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/12.jpg" class="responsive-img" alt="线程">
+                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/6.jpg" class="responsive-img" alt="java的网络编程">
                         
-                        <span class="card-title">线程</span>
+                        <span class="card-title">java的网络编程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            线程概念
-程序：一个完整的可以运行的，指令+数据的byte序列，比如QQ.exe
-进程：正在运行的程序，是程序动态运行的过程（在内存中运行）
-线程：用来完成某个特定的任务目标，比如：收发信息，播放音乐，下载
-并发：多个线程同时运行就叫线程并
+                            ServerSocket、Socket、C/S
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-17
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-21
                         </span>
                         <span class="publish-author">
                             
@@ -1192,24 +1232,24 @@ Student getStu <span class="token operator">=</span> <span class="token punctuat
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/19/ri-qi-lei-string-lei/">
+                <a href="/2020/01/17/xu-lie-hua-yu-fan-xu-lie-hua-ji-zhu/">
                     <div class="card-image">
                         
                         
-                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/5.jpg" class="responsive-img" alt="日期类&String类">
+                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/8.jpg" class="responsive-img" alt="序列化与反序列化技术">
                         
-                        <span class="card-title">日期类&String类</span>
+                        <span class="card-title">序列化与反序列化技术</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            核心API,了解这些API对日常的开发十分重要。
+                            持久化技术，序列化一个对象，序列化多个对象
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-17
                             </span>
                         <span class="publish-author">
                             
@@ -1228,14 +1268,6 @@ Student getStu <span class="token operator">=</span> <span class="token punctuat
                     
                     <a href="/tags/java/">
                         <span class="chip bg-color">java</span>
-                    </a>
-                    
-                    <a href="/tags/java%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">java基础</span>
-                    </a>
-                    
-                    <a href="/tags/java%E6%A0%B8%E5%BF%83API/">
-                        <span class="chip bg-color">java核心API</span>
                     </a>
                     
                 </div>
