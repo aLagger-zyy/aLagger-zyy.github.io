@@ -4,13 +4,23 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="IO流 (一), Zyy&#39;s Blog">
-    <meta name="description" content="File文件夹的基本操作：File dir = new File(&#34;dir&#34;);
-//注意：File类只能操作文件本身，但不能操作文件的内容
-//&#34;dir&#34;是参数，是待操作的文件或文件夹的路径
+    <meta name="keywords" content="数据库基础（一）, Zyy&#39;s Blog">
+    <meta name="description" content="常见数据库：
+关系型数据库
+Oracle
+MySQL
+SQLServer
 
-创建文件夹，返回Boolean类型
-dir.">
+
+非关系型数据库
+MogoDB
+Redis
+
+
+
+Mysql常识查看所有的数据库：
+show databases；
+MySQL数据库中大小写不敏感，基本不区分大小写">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +28,7 @@ dir.">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>IO流 (一) | Zyy&#39;s Blog</title>
+    <title>数据库基础（一） | Zyy&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,13 +318,13 @@ dir.">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        IO流 (一)
+                        数据库基础（一）
                     </div>
                 </div>
             </div>
@@ -432,12 +442,8 @@ dir.">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/java/">
-                                <span class="chip bg-color">java</span>
-                            </a>
-                        
-                            <a href="/tags/IO%E6%B5%81/">
-                                <span class="chip bg-color">IO流</span>
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
                             </a>
                         
                     </div>
@@ -448,8 +454,8 @@ dir.">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%98%B6%E6%AE%B5%E5%B0%8F%E7%BB%93/" class="post-category">
-                                阶段小结
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                数据库
                             </a>
                         
                     </div>
@@ -466,7 +472,7 @@ dir.">
 	</div>
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-17
+                    2020-01-21
                 </div>
                 
 
@@ -475,7 +481,7 @@ dir.">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    2.7k
                 </div>
                 
 	<div class="info-break-policy">
@@ -492,177 +498,365 @@ dir.">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="File文件夹的基本操作："><a href="#File文件夹的基本操作：" class="headerlink" title="File文件夹的基本操作："></a>File文件夹的基本操作：</h2><pre class=" language-java"><code class="language-java">File dir <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"dir"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//注意：File类只能操作文件本身，但不能操作文件的内容</span>
-<span class="token comment" spellcheck="true">//"dir"是参数，是待操作的文件或文件夹的路径</span></code></pre>
+                <h2 id="常见数据库："><a href="#常见数据库：" class="headerlink" title="常见数据库："></a>常见数据库：</h2><ul>
+<li>关系型数据库<ul>
+<li>Oracle</li>
+<li>MySQL</li>
+<li>SQLServer</li>
+</ul>
+</li>
+<li>非关系型数据库<ul>
+<li>MogoDB</li>
+<li>Redis</li>
+</ul>
+</li>
+</ul>
+<h2 id="Mysql常识"><a href="#Mysql常识" class="headerlink" title="Mysql常识"></a>Mysql常识</h2><p>查看所有的数据库：</p>
+<pre class=" language-mysql"><code class="language-mysql">show databases；</code></pre>
+<p>MySQL数据库中大小写不敏感，基本不区分大小写</p>
+<p>图形可视化界面：取代dos命令行，在可视化界面中操作数据库</p>
+<p><strong>数据库常用操作</strong></p>
+<pre class=" language-mysql"><code class="language-mysql">-- MySQL的注释 --
+-- 使用MySQL，需要先选择使用哪个数据库
+use 数据库名;-- 指定使用哪个数据库
+show tables;-- 查看数据库中的表
+creat database emp; -- 创建名字为emp的数据库 </code></pre>
+<h2 id="数据库中的数据类型"><a href="#数据库中的数据类型" class="headerlink" title="数据库中的数据类型"></a>数据库中的数据类型</h2><ul>
+<li><p><strong>整型：</strong>int/bigint,不设置长度的话默认11位</p>
+</li>
+<li><p><strong>字符串：</strong>char/varchar</p>
+</li>
+<li><p>char：定长字符串，char（10），指定长度为10的一个字符串，如果存入的字符串长度不足10，会使空字符串填充，一般用于定长的数据列（手机号，身份证号）</p>
 <ul>
-<li><p>创建文件夹，返回Boolean类型</p>
-<pre class=" language-java"><code class="language-java">dir<span class="token punctuation">.</span><span class="token function">mkdir</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-</li>
-<li><p>文件夹下创建文件</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//File中的构造方法</span>
-File f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>dir<span class="token punctuation">,</span><span class="token string">"d.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//参数一：文件夹，参数二：文件名</span></code></pre>
-</li>
-<li><p>创建多层文件夹</p>
-<pre class=" language-java"><code class="language-java">File f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"d1/d2/d3"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-f<span class="token punctuation">.</span><span class="token function">mkdirs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-</li>
-<li><p>删除多层文件夹的最后一个</p>
-<pre class=" language-java"><code class="language-java">File f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"d1/d2/d3"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-f<span class="token punctuation">.</span><span class="token function">mkdirs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-f<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这里只删除/d3</span></code></pre>
-</li>
-<li><p>循环遍历文件</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//1.创建文件夹所在的路径</span>
-File f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"D:/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//2.用listFiles来获取文件夹下所有的文件夹和文件</span>
-File<span class="token punctuation">[</span><span class="token punctuation">]</span> fs <span class="token operator">=</span> f<span class="token punctuation">.</span><span class="token function">listFiles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//3.遍历数组</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span>File tempF<span class="token operator">:</span>fs<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//判断是否是文件</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>tempF<span class="token punctuation">.</span><span class="token function">isFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//获取文件名</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>tempF<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"是文件"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    <span class="token punctuation">}</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>tempF<span class="token punctuation">.</span><span class="token function">isDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//获取文件的名字</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>tempF<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"是文件夹"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//使用到的方法------------------</span>
-f<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//获取文件名</span>
-f<span class="token punctuation">.</span><span class="token function">isDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//判断是否是文件夹</span>
-f<span class="token punctuation">.</span><span class="token function">isFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//判断时否是文件</span>
-f<span class="token punctuation">.</span><span class="token function">listFiles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//获取f目录下所有的文件与文件夹名，返回一个File数组</span></code></pre>
-</li>
-<li><p>使用递归的方式，将文件夹下所有的文件及子文件遍历出来</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span>File file<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//判断是文件夹还是文件</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token function">isFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token function">getAbsolutePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"文件"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//如果是文件夹切里面有东西的话，就遍历文件的次级目录</span>
-           System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token function">getAbsolutePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"文件夹"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token comment" spellcheck="true">//进入文件夹的再遍历一遍</span>
-            File<span class="token punctuation">[</span><span class="token punctuation">]</span> fs <span class="token operator">=</span> file<span class="token punctuation">.</span><span class="token function">listFiles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span>length<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token keyword">for</span><span class="token punctuation">(</span>File f<span class="token operator">:</span>fs<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                    <span class="token function">test</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//使用到的方法----------------</span>
-file<span class="token punctuation">.</span><span class="token function">getAbsolutePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//获取当前的绝对路径</span></code></pre>
-</li>
-<li><p>文件的长度</p>
-<pre class=" language-java"><code class="language-java">f<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-</li>
-<li><p>判断文件是否存在</p>
-<pre class=" language-java"><code class="language-java">f<span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-</li>
+<li>varchar：变长字符串，varchar（10）表示该字段的最大长度为10，存入多少个字符长度就为几，一般用于长度不确定的数据列</li>
 </ul>
-<h2 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h2><ul>
-<li>IO流使用来操作文件内容的技术，<strong>IO流有输入/输出，这里的输入与输出都是相对于程序来说的</strong></li>
-<li>I  input输入流：向程序输入数据，一般是从文件中读取内容到程序中</li>
-<li>O output输出流：向程序外部输出数据，一般是将数据写入到文件中</li>
-</ul>
-<h3 id="IO流的用途"><a href="#IO流的用途" class="headerlink" title="IO流的用途"></a>IO流的用途</h3><ul>
-<li>读写文件</li>
-<li>文件的上传与下载</li>
-<li>解决文件乱码</li>
-<li>框架的一些底层技术应用</li>
-</ul>
-<h3 id="IO流的分类"><a href="#IO流的分类" class="headerlink" title="IO流的分类"></a>IO流的分类</h3><p><strong>1.按照数据类型的分类</strong></p>
+</li>
+<li><p><strong>小数型：</strong>double/decimal</p>
+</li>
+<li><p>double浮点型 double（5,2）最多5位，其中必须有2位是小数，即最大值是999.99</p>
+</li>
+<li><p>decimal,用法和浮点一样，但是不会有精度问题</p>
+</li>
+<li><p><strong>日期型</strong>：</p>
+</li>
+<li><p>date日期，格式 yyyy-MM-dd,占用3个字节</p>
 <ul>
-<li>字节流：二进制，以字节为单位，因为所有的文件可以转为二进制，所以字节流对任何文件都可以操作，图片，音乐，视频，压缩包等，是通用的</li>
-<li>字符流：一般用来操作文本类型的文档，操作中文字符的传输</li>
+<li>timestamp时间戳，格式 yyyy-MM-dd  hh:mm:ss，占用4个字节</li>
+<li>datetime，格式和时间戳一样，但是占用8个字节</li>
 </ul>
-<p><strong>2.按照数据流向</strong></p>
+</li>
+</ul>
+<h2 id="SQL语言"><a href="#SQL语言" class="headerlink" title="SQL语言"></a>SQL语言</h2><ul>
+<li><strong>DDL：</strong>数据库定义语言，用于表的创建，修改，删除</li>
+<li><strong>DML：</strong>数据操作语言，对表内数据的增加，删除，修改</li>
+<li><strong>DQL：</strong>数据查询语言，对表内数据查询</li>
+<li><strong>DCL：</strong>数据控制语言，创建数据库用户，分配账户权限，密码等</li>
+<li><strong>TCL：</strong>事务控制语言，处理数据库中的事务</li>
+</ul>
+<h3 id="DDL：表的创建、修改、删除"><a href="#DDL：表的创建、修改、删除" class="headerlink" title="DDL：表的创建、修改、删除"></a>DDL：表的创建、修改、删除</h3><p>创建数据库</p>
+<pre class=" language-mysql"><code class="language-mysql">careat database 数据库名;</code></pre>
+<p>删除数据库</p>
+<pre class=" language-mysql"><code class="language-mysql">drop database 数据库名;</code></pre>
+<p>使用指定的数据库</p>
+<pre class=" language-mysql"><code class="language-mysql">use 数据库;</code></pre>
+<p>查询数据库中所有的表</p>
+<pre class=" language-mysql"><code class="language-mysql">show tables;</code></pre>
+<p>查看表的结构</p>
+<pre class=" language-mysql"><code class="language-mysql">desc 表名;</code></pre>
+<h4 id="表的创建"><a href="#表的创建" class="headerlink" title="表的创建"></a>表的创建</h4><pre class=" language-mysql"><code class="language-mysql">creat table 表名(
+    字段名1 数据类型1,
+    字段名2 数据类型2,
+    ....
+    字段名n 数据类型
+);  
+-- 创建表的格式，最后一个字符后不用加逗号</code></pre>
 <ul>
-<li><strong>输入流</strong><ul>
-<li>字节输入流（<code>InputStream</code>，抽象类）：每次读取一个字节；<ul>
-<li><code>InputStream</code>的子类：<code>FileInputStream</code></li>
-</ul>
+<li><p><strong>设置主键</strong></p>
+<p>primary key</p>
 </li>
-<li>字节缓冲输入流（<code>BufferInputStream</code>）：带缓冲区的字节输入流，效率比字节流高</li>
-<li>字符输入流（<code>InputStreamReader</code>）：每次读取一个字符</li>
-<li>字符缓冲输入流（<code>BufferReader</code>）：带缓冲的字符输入流</li>
-</ul>
+<li><p><strong>设置自增</strong></p>
+<p>auto_increment</p>
 </li>
-<li><strong>输出流</strong><ul>
-<li>字节输出流（<code>OutputStream</code>，抽象类）：每次输出一个字节；<ul>
-<li><code>OutputStream</code>的子类：<code>FileOutputStream</code></li>
-</ul>
+<li><p><strong>设置默认值</strong></p>
+<p>default  值</p>
 </li>
-<li>字节缓冲输出流（<code>BufferedoutputStream</code>）:带缓冲区的字节输出流，效率比字节流更高</li>
-<li>字符输出流（<code>OutputStreamWriter</code>）:一次输出一个字符</li>
-<li>字符缓冲输出流（<code>BufferedWriter</code>）：带缓冲去的字节输出流，效率比字节流更高</li>
-</ul>
+<li><p><strong>设置不能为空</strong></p>
+<p>not null</p>
 </li>
 </ul>
-<p><strong>注意：</strong></p>
+<pre class=" language-mysql"><code class="language-mysql">-- 建表的时候就可以设置一个自增的主键
+creat table 表名(
+    字段名1 数据类型1 primary key auto_increment,
+    字段名2 数据类型2 default 60,-- 默认值为60
+    ....
+    字段名n 数据类型
+); </code></pre>
+<h4 id="对表结构进行修改"><a href="#对表结构进行修改" class="headerlink" title="对表结构进行修改"></a>对表结构进行修改</h4><pre class=" language-mysql"><code class="language-mysql">-- 添加:在表中添加一列数据，可以添加多行，括号内字段名数据类型用逗号隔开
+alter table 表名 add(字段名 数据类型 , 字段名 数据类型);
+-- 删除:删除表中的一列字段数据
+alter table 表名 drop 字段;
+-- 修改表名：方法一
+rename table 原表名 to 新表名;
+-- 方法二
+alter table 原表名 to 新表名;
+-- 修改列名
+alter table 表名 change 原列名 新列名 数据类型;
+-- 修改字段列的其他属性
+alter table 表名 modify 列名字段 数据类型 属性如（primary key，default等）;</code></pre>
+<h4 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h4><pre class=" language-mysql"><code class="language-mysql">drop table 表名;</code></pre>
+<h3 id="DML：数据操作语言，对表内的数据的增加、删除、修改"><a href="#DML：数据操作语言，对表内的数据的增加、删除、修改" class="headerlink" title="DML：数据操作语言，对表内的数据的增加、删除、修改"></a>DML：数据操作语言，对表内的数据的增加、删除、修改</h3><h4 id="CRUD操作"><a href="#CRUD操作" class="headerlink" title="CRUD操作"></a>CRUD操作</h4><ul>
+<li>C （Create 新增）</li>
+<li>R （Retrieve 查询）</li>
+<li>U （Update 更改）</li>
+<li>D（Delecte 删除）</li>
+</ul>
+<h4 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h4><ul>
+<li>向表中插入数据，前面括号中的字段名顺序可以调换，但是后面的字段值跟字段必须一一对应</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">insert into 表名 (字段名1，字段名2...) values (字段值1，字段值2...);
+-- 例
+insert into student (id,name) values(1001,'小花');
+-- 在student表中，添加数据</code></pre>
 <ul>
-<li>带缓冲区比不带缓冲区的效率更高</li>
-<li>字节缓冲流不能直接操作文件，必须包装字节流，通过字节流进行操作</li>
+<li>对表中所有的字段添加数据，可以省略字段名，但此时values后的字段值顺序要严格按照数据库表的顺序</li>
 </ul>
-<h3 id="IO流的使用流程"><a href="#IO流的使用流程" class="headerlink" title="IO流的使用流程"></a>IO流的使用流程</h3><p><strong>字节输出流：</strong><code>OutputStream</code>（程序—–&gt;外界）</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//创建文件对象</span>
-File file <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"word.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//向word写东西，由程序向外输出内容</span>
-<span class="token comment" spellcheck="true">//OutputStream是抽象类，不能直接创建对象,需要通过子类</span>
-OutputStream outPS <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//如果要是实现向文档中追加数据内容，而不是覆盖原数据</span>
-<span class="token comment" spellcheck="true">//FileOutputStream构造方法可以传入两个参数，第一个为File,第二个参数为写入数据的时候是否在文件末尾追加内容</span>
-<span class="token comment" spellcheck="true">//默认的false表示不追加，覆盖原内容</span>
-outPS <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-<span class="token comment" spellcheck="true">//向文件中写数据</span>
-<span class="token comment" spellcheck="true">//在向文件写数据有三种实现方法</span>
-<span class="token comment" spellcheck="true">//1.字节    2.字节数组    3.将字节数组中的第off+1个元素开始的len个数据，顺序写到次输出流中</span>
-<span class="token comment" spellcheck="true">//第一种方法：字节-------------</span>
-outPS<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token number">98</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//会将数字转成字符形式存入</span>
-<span class="token comment" spellcheck="true">//第二种：通过字节数组---------</span>
-String str <span class="token operator">=</span> <span class="token string">"你好啊！"</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//将字符串转换为字节数组</span>
-<span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//将字节数组写入文件中</span>
-outPs<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//第三种：有了字节数组，但只需要字节数字指定位置的一段</span>
-outPS<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>bytes<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//从第二位开始哦，截取4个字节写入</span>
-<span class="token comment" spellcheck="true">//输入输出流关闭</span>
-outPS<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p><strong>字节输入流</strong>：<code>InputStream</code>（外界—–&gt;程序）</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//创建文件对象</span>
-File file <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"word.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//使用子类创建InputStream对象</span>
-InputStream inPS <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//read读取</span>
-<span class="token comment" spellcheck="true">//1.每次读取一个字节，一直读到最后剩下全部返回‐1</span>
-<span class="token comment" spellcheck="true">//2.读取为字节数组 </span>
-<span class="token comment" spellcheck="true">//3.读全部，返回int，字符在ascii表中对应的十进制数字</span>
-<span class="token comment" spellcheck="true">//方法一:每次读取一个字节-----</span>
-<span class="token comment" spellcheck="true">//循环读取</span>
-<span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">(</span>b <span class="token operator">=</span> inPS<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//方法二:没次读取一个字节数组</span>
-<span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">bytes</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//长度为4的字节数组</span>
-<span class="token keyword">int</span> len <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//在read()方法中，如果参数使用了byte数组，方法的返回值为整型</span>
-<span class="token comment" spellcheck="true">//返回的是数组读取到的有效字节的个数，如果一个都没有读取到就返回-1</span>
-<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">(</span>len<span class="token operator">=</span>inPS<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token operator">!=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    Sysoutem<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>bytes<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>len<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//new String是将bytes数组转换为字符串，从0开始转船，转换到读取的长度</span>
-    <span class="token comment" spellcheck="true">//如果不使用len来控制长度的话，bytes会在没用到的下标对应的元素上，使用上一次操作的元素</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//方法三:读取全部---------</span>
-<span class="token comment" spellcheck="true">//直接获取文件的字节数inPS.available(); </span>
-<span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">byte</span><span class="token punctuation">[</span>inPS<span class="token punctuation">.</span><span class="token function">available</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-inPS<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//关闭流</span>
-inPS<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class=" language-mysql"><code class="language-mysql">insert into 表名 values(字段值1,字段值2...);</code></pre>
+<ul>
+<li>一次向表中添加多行数据</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">insert into 表名 values (字段值1，值2..),(字段值2-1，值2-2..)，(字段值3-1，值3-2..);
+-- 例
+insert into student values(1002,'小明',100),(1003,'小李',99);</code></pre>
+<p><strong>注意：</strong>加入设置了自增长的主键，使用<strong><em>方式1或者方式3</em></strong>插入数据时，<strong><em>即使没有加主键的字段，系统约会自动给主键列设值</em></strong>，<strong><em>方式2</em></strong>添加所有的数据时，即使<strong><em>主键有增长，也必须在括号内将主键的字段写出来</em></strong></p>
+<h4 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h4><ul>
+<li>删除表中所有的数据</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">delete from 表名;</code></pre>
+<ul>
+<li>删除表中特定的数据</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">delete from 表名 where 字段名=字段值;
+-- 例
+delete from student where id = 10001;
+-- student表中，删除id=10001的数据</code></pre>
+<h4 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h4><p>修改表中字段的数据，如果不带调教的话就是修改了表中该字段的所有值</p>
+<pre class=" language-mysql"><code class="language-mysql">update 表名 set 字段名=字段值，字段名2=值2...where 条件
+-- 例
+update student set score=100 where name='小明'
+-- student表中，name为小明的score设置为100</code></pre>
+<h3 id="DQL：数据库查询语句"><a href="#DQL：数据库查询语句" class="headerlink" title="DQL：数据库查询语句"></a>DQL：数据库查询语句</h3><ul>
+<li><strong>查询所有的字段</strong></li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">select * from 表;</code></pre>
+<ul>
+<li><strong>别名 as：</strong>用于查询时给字段或者表名起别名，别名只在当前这次查询有效（as可以省略不写）</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">select id as 学号，name as 姓名 from stu;
+select id 学号 ，name 姓名 from stu;</code></pre>
+<ul>
+<li><strong>去重 distinct</strong>：写在select后面</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">select distinct * from stu;
+select distinct id from stu;</code></pre>
+<ul>
+<li><strong>排序 order by：</strong>将查询的结果用于根据某个字段排序，一般用于查询语句<ul>
+<li>升序  asc（可以省略）</li>
+<li>降序 desc</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">-- 查询分数，根据id排序，升序（asc省略）
+select score 分数 from stu order by id;
+-- 查询分数，先按分数升序，相同再按id降序
+select score 分数 from stu order by score asc,id desc;</code></pre>
+<ul>
+<li><strong>分组 group by：</strong>每一组只会显示其中的一条记录</li>
+<li><strong>配合分组使用的聚合函数：</strong><ul>
+<li>求个数 count(*)</li>
+<li>求最大值max（字段）</li>
+<li>求最小值min（字段）</li>
+<li>求和sum（字段）</li>
+<li>求平均值 avg（字段）</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">-- 根据性别分组
+select gender from stu group by dender;
+-- 根据分数分组，查出每个分数有多少人
+select score,count(*)from stu group by score;</code></pre>
+<ul>
+<li><strong>数据过滤 having：</strong>与group by结合使用，用于对分组后的数据进行过滤</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">-- 查询stu表的班级，按照班级分组，分组后的分数和要大于等于200
+select classid from stu group by classid having sum(score)>=200;</code></pre>
+<ul>
+<li><strong>条件查询 where ：</strong>对表中的数据进行过滤</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">select * from stu where score > 80;</code></pre>
+<ul>
+<li><strong>模糊查询 like</strong><ul>
+<li><strong>% ：</strong>匹配0个或者多个占位符</li>
+<li><strong>_ ：</strong>匹配一个占位符（占一个位置）</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">-- 查询名字，第二个字是张的所有名字
+select name from stu where name like '_张%';</code></pre>
+<ul>
+<li><strong>between…and…</strong>判断是否在范围之间</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">-- 查询分数在70-80之间的学生
+select * from stu where score between 70 and 80;
+select * from stu where score > 70 and score < 80;
+-- 查询分数不在70-80之间的学生
+select * from stu where score not between 70 and 80;</code></pre>
+<ul>
+<li><strong>in()</strong> 判断是否在一个列表</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">-- 查询分数为90,91,92的学生
+select * from stu where score in(90,91,92);
+-- 查询分数不为90,91,92的学生
+select * from stu where score not in(90,91,92);</code></pre>
+<ul>
+<li><strong>is null / is not null :</strong>为空/不为空</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">-- 查询出姓名为空的学生
+select * from stu where name is null;
+-- 查询出姓名不为空的学生
+select * from stu where name is not null;</code></pre>
+<ul>
+<li><strong>不等于 &lt;&gt;/!=</strong></li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">-- 查询分数不为99的学生
+-- <>
+select * from stu where score <> 99;
+-- ！=
+select * from stu where score ！=99;</code></pre>
+<ul>
+<li><strong>分页 limit（开发常用）</strong>：<ul>
+<li>limit 显示数据个数    如    limit 5;</li>
+<li>limit 起始位置，显示数据个数  如 limit 6,3（从第7条数据开始，数3条）</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">select * from stu limit 5;
+select * from stu limit 6,3;</code></pre>
+<h2 id="约束分类"><a href="#约束分类" class="headerlink" title="约束分类"></a>约束分类</h2><p>约束条件 constraint：约束实际上就是表中数据的限制条件</p>
+<p>作用：表在设计的时候加入约束的目的就是为了保证表中记录完整和有效</p>
+<ul>
+<li><p><strong>非空约束 not null</strong></p>
+<p>只有列级约束</p>
+<pre class=" language-mysql"><code class="language-mysql">create table stus(
+    id int(2),
+    name varchar(10) not null
+)</code></pre>
+</li>
+<li><p><strong>主键约束（primary key，简称pk）</strong></p>
+<ol>
+<li>主键约束 = 不能重复 + 不能为空（null）</li>
+<li>主键约束可以有两种实现方式：列级约束和表级约束</li>
+</ol>
+</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">create table stus(
+    -- 列级约束，将id设为主键
+    id int(2) primary key,
+    name varchar(10)
+);</code></pre>
+<p>设置主键自增</p>
+<pre class=" language-mysql"><code class="language-mysql">alter table stus modify id int(2) auto_crement;</code></pre>
+<ul>
+<li><strong>表级约束 constraint</strong></li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">create table stus(
+    id int(2),
+    name varchar(20),
+    -- 表级约束，写在表的最后面
+    -- 表级约束名：表名_列字段名_约束条件
+    constraint stus_id_pk primary key(id)
+)</code></pre>
+<ul>
+<li><p><strong>唯一约束  Unique（uk）</strong></p>
+<p>约束插入数据值，使之是唯一的</p>
+</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">-- 列级约束
+create table stus(
+    id int(),
+    name varchar(20) unique
+)</code></pre>
+<pre class=" language-mysql"><code class="language-mysql">-- 表级约束
+create table stus(
+    id int(),
+    name varchar(20),
+    constraint stus_name_uk unqiue(name)
+)</code></pre>
+<ul>
+<li><p><strong>检查约束 Check（CK）,mysql不支持</strong></p>
+<p>约束插入的数据，是否符合给定的条件</p>
+</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">create table stus(
+    id int(2),
+    name varchar(20),
+    gender varchar(10) check(gender in ('男','女'))
+)</code></pre>
+<ul>
+<li><p><strong>枚举类型 enum()</strong></p>
+<p>约束插入的数据，是否是枚举里的数据</p>
+</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">create table stus(
+    id int(2),
+    name varchar(20),
+    -- 不为空，且默认为女
+    gender enum('男','女') not null default '女'
+)</code></pre>
+<ul>
+<li><p><strong>触发器</strong> </p>
+<p>Oracle中触发事件</p>
+</li>
+<li><p><strong>外键约束  Foreign key（FK）</strong></p>
+<ul>
+<li>外键约束定义在两个表的两个字段或者一个表的两个字段上，</li>
+<li>用来保证给相关的两个字段的关系</li>
+<li>外键所在的表就是子表，子表引用数据的表就是主表</li>
+<li>子表的外键列引用主表的主键列</li>
+</ul>
+<p><strong>外键的约束格式：</strong></p>
+<p>foreign key（需要设为外键的字段）references 其他表（需要关联的字段）</p>
+<p><strong>references</strong>：关联映射的含义</p>
+</li>
+</ul>
+<p><strong>示例：</strong>stus 学生表（子表），major 专业表（主表） </p>
+<pre class=" language-mysql"><code class="language-mysql">-- 学生表（子表）
+create table stus(
+    sid int(3),
+    name varchar(20) not null,
+    major_id int(2),
+    -- 设置sid为这张表的主键
+    constraint stus_sid_pk primary kty (sid),
+    -- 将major_id设置为这张表的外键，映射的是 major表中的mid
+    constraint stus_mid_fk foreign key (major_id) references major(mid)
+);
+-- 专业表（主表）
+create table stus(
+    mid int(2) primary key,
+    name varchar(20)
+) </code></pre>
+<ol>
+<li>向子表插入外键数据时，如果主表中，并没有这样一条外键数据，就会报错；</li>
+<li>删除专业表中的主键值时，如果子表中有数据用了这个外键值，就会报错</li>
+</ol>
+<p><strong>删除约束条件</strong></p>
+<pre class=" language-mysql"><code class="language-mysql">alter table stus drop foreign key stus_mid_fk;</code></pre>
+<p><strong>添加约束条件</strong></p>
+<pre class=" language-mysql"><code class="language-mysql">-- 设置外键
+alter table stus add constraint stus_mid_fk foreign key (major_id) references major(mid) on delete set null;
+-- on delete set null
+当映射关联表中的数据删除时，主表被关联的数据会设置为null
+-- on delete cascade
+级联删除（当关联映射表数据被删除时，被关联的表中对应的数据也会跟着删除）</code></pre>
 
             </div>
             <hr/>
@@ -688,7 +882,7 @@ inPS<span class="token punctuation">.</span><span class="token function">close</
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2019/12/17/io-liu-yi/">http://yoursite.com/2019/12/17/io-liu-yi/</a>
+                    <a href="http://yoursite.com/2020/01/21/shu-ju-ku-ji-chu-yi/">http://yoursite.com/2020/01/21/shu-ju-ku-ji-chu-yi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -726,12 +920,8 @@ inPS<span class="token punctuation">.</span><span class="token function">close</
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/java/">
-                                    <span class="chip bg-color">java</span>
-                                </a>
-                            
-                                <a href="/tags/IO%E6%B5%81/">
-                                    <span class="chip bg-color">IO流</span>
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
                                 </a>
                             
                         </div>
@@ -1160,50 +1350,48 @@ inPS<span class="token punctuation">.</span><span class="token function">close</
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/12/18/html5-jian-dan-bi-ji-2/">
+                <a href="/2020/01/21/shu-ju-ku-ji-chu-yi/">
                     <div class="card-image">
                         
                         
-                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/1.jpg" class="responsive-img" alt="Html5简单笔记2">
+                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/18.jpg" class="responsive-img" alt="数据库基础（一）">
                         
-                        <span class="card-title">Html5简单笔记2</span>
+                        <span class="card-title">数据库基础（一）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            学校的javaweb实训，Html5笔记（2）
+                            DDL、DML、DQL，CRUD，约束条件
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/javaweb%E5%AE%9E%E8%AE%AD/" class="post-category">
-                                    javaweb实训
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                    数据库
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Html5/">
-                        <span class="chip bg-color">Html5</span>
-                    </a>
-                    
-                    <a href="/tags/Visual/">
-                        <span class="chip bg-color">Visual</span>
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
                     </a>
                     
                 </div>
@@ -1217,24 +1405,24 @@ inPS<span class="token punctuation">.</span><span class="token function">close</
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/17/io-liu-er/">
+                <a href="/2020/01/21/java-wang-luo-bian-cheng/">
                     <div class="card-image">
                         
                         
-                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/22.jpg" class="responsive-img" alt="IO流（二）">
+                        <img src="https://blog-1300910484.cos.ap-shanghai.myqcloud.com/featureimages/6.jpg" class="responsive-img" alt="java的网络编程">
                         
-                        <span class="card-title">IO流（二）</span>
+                        <span class="card-title">java的网络编程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            字节流复制文件，字符流的输入输出流，编码格式，字符缓冲流
+                            ServerSocket、Socket、C/S
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-21
                             </span>
                         <span class="publish-author">
                             
@@ -1253,10 +1441,6 @@ inPS<span class="token punctuation">.</span><span class="token function">close</
                     
                     <a href="/tags/java/">
                         <span class="chip bg-color">java</span>
-                    </a>
-                    
-                    <a href="/tags/IO%E6%B5%81/">
-                        <span class="chip bg-color">IO流</span>
                     </a>
                     
                 </div>
