@@ -477,7 +477,7 @@ long time = System.currentTimeMillis();
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.9k
+                    3k
                 </div>
                 
 	<div class="info-break-policy">
@@ -554,6 +554,23 @@ cal<span class="token punctuation">.</span><span class="token function">get</spa
 cal<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>MINUTE<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//获取到秒数</span>
 cal<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>SECOND<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="getActualMaxImum（int-field）方法"><a href="#getActualMaxImum（int-field）方法" class="headerlink" title="getActualMaxImum（int field）方法"></a>getActualMaxImum（int field）方法</h4><p>这个方法里面的参数field</p>
+<ul>
+<li><p>Calendar.DATE</p>
+</li>
+<li><p>Calendar.MONTH</p>
+</li>
+<li><p>Calendar.Year</p>
+<p>等。。</p>
+</li>
+</ul>
+<p>这个方法是用来得到里面的fiel的最大值的</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//例如</span>
+Calendar c <span class="token operator">=</span> Calendar<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+c<span class="token punctuation">.</span><span class="token function">getActualMaxImum</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>Month<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//返回值是11，也就是说一个月一共有11个（从0开始计算）</span>
+c<span class="token punctuation">.</span><span class="token function">getActualMaxImum</span><span class="token punctuation">(</span>Calendar<span class="token punctuation">.</span>DATE<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//返回值会根据c的时间，来给出c时间所在月的最大天数值</span></code></pre>
 <h4 id="修改时间（set，add方法）"><a href="#修改时间（set，add方法）" class="headerlink" title="修改时间（set，add方法）"></a><strong>修改时间</strong>（<code>set</code>，<code>add</code>方法）</h4><p><strong>set方法</strong></p>
 <p>参数列表：(<code>需要修改的时间</code>，<code>修改后的数据</code>)</p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//修改年份</span>
@@ -1537,7 +1554,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">32.6k</span>&nbsp;字
+                class="white-color">32.7k</span>&nbsp;字
             
             
             
